@@ -5,6 +5,8 @@ class_name VNController
 @onready var vn_text_panel : TextureRect = $"../VNCanvas/Root/TextPanel"
 @onready var vn_text_label : RichTextLabel = $"../VNCanvas/Root/TextPanel/TextLabel"
 @onready var vn_fade_panel : ColorRect = $"../VNCanvas/Root/FadePanel"
+@onready var vn_options_layout : BoxContainer = $"../VNCanvas/Root/OptionsLayout"
+@onready var vn_options_template_button : Button = $"../VNCanvas/Root/OptionsLayout/OptionTemplateButton"
 @onready var location_canvas : CanvasLayer = $"../LocationCanvas"
 @onready var character_canvas: CanvasLayer = $"../CharacterCanvas"
 
@@ -14,10 +16,21 @@ const vn_text_animate_duration: float = 0.4
 const vn_text_animate_text_duration_per_char: float = 0.02
 
 var location_node: LocationRoot
+var option_buttons: Array[Button] = []
+var option_selected_index: int
 
 func _ready():
 	vn_text_panel.visible = false
 	vn_fade_panel.visible = false
+	vn_options_template_button.visible = false
+	option_buttons.append(vn_options_template_button)
+	vn_options_template_button.pressed.connect(_on_options_button_pressed.bind(0))
+	for i in range(4):
+		var button:= vn_options_template_button.duplicate()
+		vn_options_layout.add_child(button)
+		option_buttons.append(button)
+		button.pressed.connect(_on_options_button_pressed.bind(i+1))
+
 
 func load_character(res: String) -> CharacterRoot:
 	var packed_character := load(res)
@@ -28,9 +41,11 @@ func load_character(res: String) -> CharacterRoot:
 	c.position.y = 1080
 	return c
 
+
 func unload_all_characters():
 	for child in character_canvas.get_children():
 		child.queue_free()
+
 
 func set_location(res: String, fade_duration: float) -> void:
 	if fade_duration > 0 and location_node:
@@ -55,8 +70,10 @@ func set_location(res: String, fade_duration: float) -> void:
 		await tween.finished
 		vn_fade_panel.visible = false
 	
+	
 func show_text(text: String, character: CharacterRoot) -> void:
 	await show_texts([text], character)
+	
 	
 func show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	vn_text_panel.visible = true
@@ -98,11 +115,34 @@ func show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	
 	vn_text_panel.visible = false
 
+
 func wait_for_click() -> void:
 	while true:
 		await get_tree().process_frame
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			return
-			
+
+
 func show_options(options: Array[String]) -> int:
-	return 0
+	for i in range(len(option_buttons)):
+		var button = option_buttons[i]
+		if i < len(options):
+			button.visible = true
+			button.text = options[i]
+		else:
+			button.visible = false
+
+	option_selected_index = -1
+	while option_selected_index == -1:
+		await get_tree().process_frame
+		
+	for i in range(len(option_buttons)):
+		var button = option_buttons[i]
+		button.visible = false
+	
+	return option_selected_index
+
+
+func _on_options_button_pressed(index: int) -> void:
+	option_selected_index = index
+	print("option pressed: %d" % index)

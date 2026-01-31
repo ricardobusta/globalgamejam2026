@@ -10,10 +10,20 @@ func _ready() -> void:
 	await vn_controller.set_location(placeholder_location, 0.0)
 	await vn_controller.show_texts(["Toasty","massa"], protagonist)
 	await vn_controller.show_text("Eae mano", fursuit_maker)
+	
+	while true:
+		var result = await vn_controller.show_options(["Macaco", "Vibes", "Layout"])
+		match result:
+			0:
+				await vn_controller.show_text("É, não, é?", protagonist)
+			1:
+				await vn_controller.show_text("Eae mano", fursuit_maker)
+			2:
+				await vn_controller.show_text("Design", null)
+		if result == 2:
+			break
+	
 	await vn_controller.show_text("E todos viveram felizes para sempre", null)
 	await vn_controller.set_location(placeholder_location, 1.0)
 	await vn_controller.show_text("a", null)
 	await vn_controller.show_text("b", null)
-	
-	var result = await vn_controller.show_options(["OptionA", "OptionB", "OptionC"])
-	await vn_controller.show_text("Você escolheu {result}", null)

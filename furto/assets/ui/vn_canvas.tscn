@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3u8e8mj4b84h"]
 
 [ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="1_k31s1"]
+[ext_resource type="Theme" uid="uid://dj207vo5msjl7" path="res://themes/options_button_theme.tres" id="2_6ds0g"]
 
 [sub_resource type="Theme" id="Theme_7biu0"]
 RichTextLabel/font_sizes/normal_font_size = 32
@@ -46,6 +47,25 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = SubResource("Theme_7biu0")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna. Phasellus lacinia viverra ex ut molestie."
+
+[node name="OptionsLayout" type="VBoxContainer" parent="Root" unique_id=1762454750]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -26.5
+offset_right = 71.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionTemplateButton" type="Button" parent="Root/OptionsLayout" unique_id=1235434720]
+layout_mode = 2
+theme = ExtResource("2_6ds0g")
+text = "Option 1"
 
 [node name="FadePanel" type="ColorRect" parent="Root" unique_id=1869603807]
 visible = false
