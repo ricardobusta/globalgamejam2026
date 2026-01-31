@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://br8qq2rug0eoh"]
 
 [ext_resource type="Script" uid="uid://cgk3l7apjakmh" path="res://code/vn/gameplay_controller.gd" id="1_7biu0"]
+[ext_resource type="Script" uid="uid://bwvu520ovig1k" path="res://code/vn/vn_controller.gd" id="2_ct7aa"]
 [ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="2_l1v76"]
 
 [sub_resource type="Theme" id="Theme_7biu0"]
 RichTextLabel/font_sizes/normal_font_size = 32
 
-[node name="VN" type="Node" unique_id=654853788]
+[node name="GameplayRoot" type="Node" unique_id=654853788]
 script = ExtResource("1_7biu0")
+
+[node name="VNController" type="Node" parent="." unique_id=521650082]
+script = ExtResource("2_ct7aa")
 
 [node name="VNCanvas" type="CanvasLayer" parent="." unique_id=312119860]
 layer = 10
