@@ -68,14 +68,21 @@ func set_location(res: String, fade_duration: float) -> void:
 		vn_root.vn_fade_panel.visible = false
 	
 	
-func show_text(text: String, character: CharacterRoot) -> void:
+func show_text(text: String, character: CharacterRoot = null) -> void:
 	await show_texts([text], character)
 	
 	
-func show_texts(texts: Array[String], character: CharacterRoot) -> void:
+func show_texts(texts: Array[String], character: CharacterRoot = null) -> void:
 	vn_root.vn_text_panel.visible = true
 	vn_root.vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
 	vn_root.vn_text_label.visible_ratio = 0.0
+	
+	if character != null:
+		vn_root.vn_name_panel.visible = true
+		vn_root.vn_name_panel.position.x = character.get_on_position() - vn_root.vn_name_panel.size.x/2.0
+		vn_root.vn_name_label.text = character.char_name
+	else:
+		vn_root.vn_name_panel.visible = false
 	
 	var tween := create_tween()
 	tween.tween_property(vn_root.vn_text_panel, "position:y", vn_text_panel_on_y, vn_text_animate_duration)\
