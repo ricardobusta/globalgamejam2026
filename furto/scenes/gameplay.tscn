@@ -62,5 +62,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CharacterCanvas" type="CanvasLayer" parent="." unique_id=715864190]
+layer = 2
 
 [node name="LocationCanvas" type="CanvasLayer" parent="." unique_id=1095764844]
