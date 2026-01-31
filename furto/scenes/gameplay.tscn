@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://br8qq2rug0eoh"]
 
 [ext_resource type="Script" uid="uid://cgk3l7apjakmh" path="res://code/vn/gameplay_controller.gd" id="1_7biu0"]
-[ext_resource type="Texture2D" uid="uid://d0duv6oqgjp2q" path="res://assets/locations/placeholder/placeholder.png" id="2_00tan"]
 [ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="2_l1v76"]
 
 [sub_resource type="Theme" id="Theme_7biu0"]
@@ -51,14 +50,6 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = SubResource("Theme_7biu0")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna. Phasellus lacinia viverra ex ut molestie."
 
-[node name="LocationCanvas" type="CanvasLayer" parent="." unique_id=1095764844]
+[node name="CharacterCanvas" type="CanvasLayer" parent="." unique_id=715864190]
 
-[node name="TextureRect" type="TextureRect" parent="LocationCanvas" unique_id=479015196]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_00tan")
-expand_mode = 2
-stretch_mode = 4
+[node name="LocationCanvas" type="CanvasLayer" parent="." unique_id=1095764844]
