@@ -10,6 +10,7 @@ extends Control
 func _ready() -> void:
 	play_button.pressed.connect(_on_play_button_clicked)
 	credits_button.pressed.connect(_on_credits_button_clicked)
+	play_button.grab_focus()
 	
 func _on_play_button_clicked() -> void:
 	get_tree().change_scene_to_file(gameplay_scene)

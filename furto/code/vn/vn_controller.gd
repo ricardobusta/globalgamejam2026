@@ -134,6 +134,8 @@ func show_options(options: Array[String]) -> int:
 		else:
 			button.visible = false
 
+	option_buttons[0].grab_focus()
+
 	option_selected_index = -1
 	while option_selected_index == -1:
 		await get_tree().process_frame
