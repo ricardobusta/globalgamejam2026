@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://b6yqpjepqoan6"]
+[gd_scene format=3 uid="uid://bre4b1bo3s6ju"]
 
-[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_meric"]
-[ext_resource type="Texture2D" uid="uid://d0duv6oqgjp2q" path="res://assets/locations/placeholder/placeholder.png" id="2_nvcd3"]
+[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_fl4bv"]
+[ext_resource type="Texture2D" uid="uid://d0duv6oqgjp2q" path="res://assets/locations/placeholder/placeholder.png" id="2_h2dm8"]
 
 [node name="PlaceholderLocation" type="Node" unique_id=2024429395]
-script = ExtResource("1_meric")
+script = ExtResource("1_fl4bv")
 
 [node name="Bg" type="TextureRect" parent="." unique_id=200755685]
 anchors_preset = 15
@@ -12,6 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_nvcd3")
+texture = ExtResource("2_h2dm8")
 expand_mode = 2
 stretch_mode = 6
