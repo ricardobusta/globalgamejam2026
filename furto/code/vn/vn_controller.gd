@@ -153,4 +153,3 @@ func show_options(options: Array[String]) -> int:
 
 func _on_options_button_pressed(index: int) -> void:
 	option_selected_index = index
-	print("option pressed: %d" % index)
