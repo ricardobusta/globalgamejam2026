@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="TextureRect" parent="VNCanvas/Root" unique_id=1245663431]
+[node name="TextPanel" type="TextureRect" parent="VNCanvas/Root" unique_id=1245663431]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -29,13 +29,14 @@ anchor_bottom = 1.0
 offset_left = -2.0
 offset_top = -300.0
 offset_right = -2.0
+offset_bottom = 0.0013427734
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_l1v76")
 expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VNCanvas/Root/Panel" unique_id=1603299136]
+[node name="TextLabel" type="RichTextLabel" parent="VNCanvas/Root/TextPanel" unique_id=1603299136]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,6 +50,16 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = SubResource("Theme_7biu0")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna. Phasellus lacinia viverra ex ut molestie."
+
+[node name="FadePanel" type="ColorRect" parent="VNCanvas/Root" unique_id=493582958]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="CharacterCanvas" type="CanvasLayer" parent="." unique_id=715864190]
 
