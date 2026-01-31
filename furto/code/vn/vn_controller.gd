@@ -56,7 +56,7 @@ func set_location(res: String, fade_duration: float) -> void:
 		vn_fade_panel.visible = false
 	
 func show_text(text: String, character: CharacterRoot) -> void:
-	await async_show_texts([text], character)
+	await show_texts([text], character)
 	
 func show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	vn_text_panel.visible = true
@@ -82,7 +82,7 @@ func show_texts(texts: Array[String], character: CharacterRoot) -> void:
 		tween.tween_property(vn_text_label, "visible_ratio", 1.0, text_duration)\
 		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 		await tween.finished
-		await async_wait_for_click()
+		await wait_for_click()
 	
 	tween = create_tween()
 	tween.tween_property(vn_text_panel, "position:y", vn_text_panel_off_y, vn_text_animate_duration)\
@@ -103,3 +103,6 @@ func wait_for_click() -> void:
 		await get_tree().process_frame
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			return
+			
+func show_options(options: Array[String]) -> int:
+	return 0

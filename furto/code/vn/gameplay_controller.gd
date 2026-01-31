@@ -15,5 +15,5 @@ func _ready() -> void:
 	await vn_controller.show_text("a", null)
 	await vn_controller.show_text("b", null)
 	
-	#var result = await vn_controller.show_options(["OptionA", "OptionB", "OptionC"])
-	#await vn_controller.show_text("Você escolheu {result}", null)
+	var result = await vn_controller.show_options(["OptionA", "OptionB", "OptionC"])
+	await vn_controller.show_text("Você escolheu {result}", null)
