@@ -19,7 +19,7 @@ func _ready():
 	vn_text_panel.visible = false
 	vn_fade_panel.visible = false
 
-func async_load_character(res: String) -> CharacterRoot:
+func load_character(res: String) -> CharacterRoot:
 	var packed_character := load(res)
 	var c: CharacterRoot = packed_character.instantiate()
 	c.name = c.char_name
@@ -32,7 +32,7 @@ func unload_all_characters():
 	for child in character_canvas.get_children():
 		child.queue_free()
 
-func async_set_location(res: String, fade_duration: float) -> void:
+func set_location(res: String, fade_duration: float) -> void:
 	if fade_duration > 0 and location_node:
 		vn_fade_panel.visible = true
 		vn_fade_panel.color.a = 0
@@ -55,10 +55,10 @@ func async_set_location(res: String, fade_duration: float) -> void:
 		await tween.finished
 		vn_fade_panel.visible = false
 	
-func async_show_text(text: String, character: CharacterRoot) -> void:
+func show_text(text: String, character: CharacterRoot) -> void:
 	await async_show_texts([text], character)
 	
-func async_show_texts(texts: Array[String], character: CharacterRoot) -> void:
+func show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	vn_text_panel.visible = true
 	vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
 	vn_text_label.visible_ratio = 0.0
@@ -98,7 +98,7 @@ func async_show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	
 	vn_text_panel.visible = false
 
-func async_wait_for_click() -> void:
+func wait_for_click() -> void:
 	while true:
 		await get_tree().process_frame
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
