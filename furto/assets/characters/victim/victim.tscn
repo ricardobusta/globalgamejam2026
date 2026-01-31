@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byn07fjvq8ywi"]
 
 [ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_3vwjt"]
-[ext_resource type="Texture2D" uid="uid://csvqbwndnjkda" path="res://assets/characters/fursuit_maker/fursuit_maker.png" id="2_vu3ys"]
+[ext_resource type="Texture2D" uid="uid://dhpqor0f0k0vt" path="res://assets/characters/victim/victim.png" id="2_n15q4"]
 
 [node name="FursuitMaker" type="Control" unique_id=321236823]
 layout_mode = 3
@@ -16,5 +16,5 @@ offset_top = -1033.0
 offset_right = 1074.919
 offset_bottom = -1.0
 scale = Vector2(-1, 1)
-texture = ExtResource("2_vu3ys")
+texture = ExtResource("2_n15q4")
 expand_mode = 3

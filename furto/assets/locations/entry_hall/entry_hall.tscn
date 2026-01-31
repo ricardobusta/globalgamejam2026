@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://buyyul8yq2fa4"]
+
+[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_u3s5v"]
+[ext_resource type="Texture2D" uid="uid://d0duv6oqgjp2q" path="res://assets/locations/placeholder/placeholder.png" id="2_in4if"]
+
+[node name="PlaceholderLocation" type="Node" unique_id=2024429395]
+script = ExtResource("1_u3s5v")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=200755685]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_in4if")
+expand_mode = 2
+stretch_mode = 6
