@@ -2,11 +2,7 @@ extends Node
 
 class_name VNController
 
-@onready var vn_text_panel : TextureRect = $"../VNCanvas/Root/TextPanel"
-@onready var vn_text_label : RichTextLabel = $"../VNCanvas/Root/TextPanel/TextLabel"
-@onready var vn_fade_panel : ColorRect = $"../VNCanvas/Root/FadePanel"
-@onready var vn_options_layout : BoxContainer = $"../VNCanvas/Root/OptionsLayout"
-@onready var vn_options_template_button : Button = $"../VNCanvas/Root/OptionsLayout/OptionTemplateButton"
+@onready var vn_root: VNRoot = $"../VNCanvas"
 @onready var location_canvas : CanvasLayer = $"../LocationCanvas"
 @onready var character_canvas: CanvasLayer = $"../CharacterCanvas"
 
@@ -20,14 +16,15 @@ var option_buttons: Array[Button] = []
 var option_selected_index: int
 
 func _ready():
-	vn_text_panel.visible = false
-	vn_fade_panel.visible = false
-	vn_options_template_button.visible = false
-	option_buttons.append(vn_options_template_button)
-	vn_options_template_button.pressed.connect(_on_options_button_pressed.bind(0))
+	vn_root.init()
+	vn_root.vn_text_panel.visible = false
+	vn_root.vn_fade_panel.visible = false
+	vn_root.vn_options_template_button.visible = false
+	option_buttons.append(vn_root.vn_options_template_button)
+	vn_root.vn_options_template_button.pressed.connect(_on_options_button_pressed.bind(0))
 	for i in range(4):
-		var button:= vn_options_template_button.duplicate()
-		vn_options_layout.add_child(button)
+		var button:= vn_root.vn_options_template_button.duplicate()
+		vn_root.vn_options_layout.add_child(button)
 		option_buttons.append(button)
 		button.pressed.connect(_on_options_button_pressed.bind(i+1))
 
@@ -49,10 +46,10 @@ func unload_all_characters():
 
 func set_location(res: String, fade_duration: float) -> void:
 	if fade_duration > 0 and location_node:
-		vn_fade_panel.visible = true
-		vn_fade_panel.color.a = 0
+		vn_root.vn_fade_panel.visible = true
+		vn_root.vn_fade_panel.color.a = 0
 		var tween := create_tween()
-		tween.tween_property(vn_fade_panel, "color:a", 1, fade_duration)\
+		tween.tween_property(vn_root.vn_fade_panel, "color:a", 1, fade_duration)\
 			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		await tween.finished
 	
@@ -65,10 +62,10 @@ func set_location(res: String, fade_duration: float) -> void:
 		
 	if fade_duration > 0:
 		var tween := create_tween()
-		tween.tween_property(vn_fade_panel, "color:a", 0, fade_duration)\
+		tween.tween_property(vn_root.vn_fade_panel, "color:a", 0, fade_duration)\
 			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		await tween.finished
-		vn_fade_panel.visible = false
+		vn_root.vn_fade_panel.visible = false
 	
 	
 func show_text(text: String, character: CharacterRoot) -> void:
@@ -76,12 +73,12 @@ func show_text(text: String, character: CharacterRoot) -> void:
 	
 	
 func show_texts(texts: Array[String], character: CharacterRoot) -> void:
-	vn_text_panel.visible = true
-	vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
-	vn_text_label.visible_ratio = 0.0
+	vn_root.vn_text_panel.visible = true
+	vn_root.vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
+	vn_root.vn_text_label.visible_ratio = 0.0
 	
 	var tween := create_tween()
-	tween.tween_property(vn_text_panel, "position:y", vn_text_panel_on_y, vn_text_animate_duration)\
+	tween.tween_property(vn_root.vn_text_panel, "position:y", vn_text_panel_on_y, vn_text_animate_duration)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
 	if character != null:
@@ -92,17 +89,17 @@ func show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	await tween.finished
 	
 	for text in texts:
-		vn_text_label.visible_ratio = 0.0
+		vn_root.vn_text_label.visible_ratio = 0.0
 		tween = create_tween()
-		vn_text_label.text = text
+		vn_root.vn_text_label.text = text
 		var text_duration = text.length() * vn_text_animate_text_duration_per_char
-		tween.tween_property(vn_text_label, "visible_ratio", 1.0, text_duration)\
+		tween.tween_property(vn_root.vn_text_label, "visible_ratio", 1.0, text_duration)\
 		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 		await tween.finished
 		await wait_for_click()
 	
 	tween = create_tween()
-	tween.tween_property(vn_text_panel, "position:y", vn_text_panel_off_y, vn_text_animate_duration)\
+	tween.tween_property(vn_root.vn_text_panel, "position:y", vn_text_panel_off_y, vn_text_animate_duration)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		
 	if character != null:
@@ -113,7 +110,7 @@ func show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	if character != null:
 		character.visible = false
 	
-	vn_text_panel.visible = false
+	vn_root.vn_text_panel.visible = false
 
 
 func wait_for_click() -> void:

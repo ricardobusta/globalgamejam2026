@@ -1,13 +1,18 @@
 [gd_scene format=3 uid="uid://c3u8e8mj4b84h"]
 
+[ext_resource type="Script" uid="uid://c3rdqgasncisv" path="res://code/vn/vn_root.gd" id="1_jihrm"]
 [ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="1_k31s1"]
 [ext_resource type="Theme" uid="uid://dj207vo5msjl7" path="res://themes/options_button_theme.tres" id="2_6ds0g"]
 
 [sub_resource type="Theme" id="Theme_7biu0"]
 RichTextLabel/font_sizes/normal_font_size = 32
 
+[sub_resource type="Theme" id="Theme_6ds0g"]
+Label/font_sizes/font_size = 32
+
 [node name="VNCanvas" type="CanvasLayer" unique_id=1433724896]
 layer = 10
+script = ExtResource("1_jihrm")
 
 [node name="Root" type="Control" parent="." unique_id=1573823607]
 layout_mode = 3
@@ -47,6 +52,33 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = SubResource("Theme_7biu0")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna. Phasellus lacinia viverra ex ut molestie."
+
+[node name="NamePanel" type="Panel" parent="Root/TextPanel" unique_id=1092789760]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -103.0
+offset_top = -22.0
+offset_right = 102.60986
+offset_bottom = 18.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="NameLabel" type="Label" parent="Root/TextPanel/NamePanel" unique_id=1359437075]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_right = 400.0
+offset_bottom = 45.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_6ds0g")
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OptionsLayout" type="VBoxContainer" parent="Root" unique_id=1762454750]
 layout_mode = 1
