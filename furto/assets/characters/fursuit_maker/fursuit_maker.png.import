@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6oprij5heup1"
-path="res://.godot/imported/placeholder.png-837919e8e04eb14d481c4042d2412d6f.ctex"
+uid="uid://csvqbwndnjkda"
+path="res://.godot/imported/fursuit_maker.png-c70c513a14395b7eb0f26896d46af628.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/placeholder/placeholder.png"
-dest_files=["res://.godot/imported/placeholder.png-837919e8e04eb14d481c4042d2412d6f.ctex"]
+source_file="res://assets/characters/fursuit_maker/fursuit_maker.png"
+dest_files=["res://.godot/imported/fursuit_maker.png-c70c513a14395b7eb0f26896d46af628.ctex"]
 
 [params]
 

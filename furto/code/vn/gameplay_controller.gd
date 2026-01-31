@@ -7,7 +7,6 @@ extends Node
 @onready var character_canvas: CanvasLayer = $CharacterCanvas
 
 @export var placeholder_location: String = "res://assets/locations/placeholder/placeholder_location.tscn"
-@export var placeholder_character: String = "res://assets/characters/placeholder/placeholder_character.tscn"
 
 var location_node: LocationRoot
 const vn_text_panel_on_y: int = 780
@@ -16,14 +15,13 @@ const vn_text_animate_duration: float = 0.4
 const vn_text_animate_text_duration_per_char: float = 0.02
 
 func _ready() -> void:
-	var char1:= async_load_character(placeholder_character)
-	var char2:= async_load_character(placeholder_character)
-	char2.char_protag = true
+	var fursuit_maker:= async_load_character("res://assets/characters/fursuit_maker/fursuit_maker.tscn")
+	var protagonist:= async_load_character("res://assets/characters/protagonist/protagonist.tscn")
 	vn_text_panel.visible = false
 	vn_fade_panel.visible = false
 	await async_set_location(placeholder_location, 0.0)
-	await async_show_texts(["Toasty","massa"], char2)
-	await async_show_text("Eae mano", char1)
+	await async_show_texts(["Toasty","massa"], protagonist)
+	await async_show_text("Eae mano", fursuit_maker)
 	await async_show_text("E todos viveram felizes para sempre", null)
 	await async_set_location(placeholder_location, 1.0)
 	await async_show_text("a", null)
