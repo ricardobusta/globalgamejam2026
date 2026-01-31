@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c3u8e8mj4b84h"]
+
+[ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="1_k31s1"]
+
+[sub_resource type="Theme" id="Theme_7biu0"]
+RichTextLabel/font_sizes/normal_font_size = 32
+
+[node name="VNCanvas" type="CanvasLayer" unique_id=1433724896]
+layer = 10
+
+[node name="Root" type="Control" parent="." unique_id=1573823607]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextPanel" type="TextureRect" parent="Root" unique_id=1903464571]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -300.0
+offset_right = -2.0
+offset_bottom = 0.0013427734
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_k31s1")
+expand_mode = 1
+
+[node name="TextLabel" type="RichTextLabel" parent="Root/TextPanel" unique_id=606768967]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_7biu0")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna. Phasellus lacinia viverra ex ut molestie."
+
+[node name="FadePanel" type="ColorRect" parent="Root" unique_id=1869603807]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
