@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://br8qq2rug0eoh"]
 
 [ext_resource type="Script" uid="uid://cgk3l7apjakmh" path="res://code/vn/gameplay_controller.gd" id="1_7biu0"]
+[ext_resource type="Texture2D" uid="uid://d0duv6oqgjp2q" path="res://assets/locations/placeholder/placeholder.png" id="2_00tan"]
+[ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="2_l1v76"]
 
-[node name="Root" type="Node" unique_id=654853788]
+[sub_resource type="Theme" id="Theme_7biu0"]
+RichTextLabel/font_sizes/normal_font_size = 32
+
+[node name="VN" type="Node" unique_id=654853788]
 script = ExtResource("1_7biu0")
 
-[node name="UiCanvas" type="CanvasLayer" parent="." unique_id=312119860]
+[node name="VNCanvas" type="CanvasLayer" parent="." unique_id=312119860]
+layer = 10
 
-[node name="Ui" type="Control" parent="UiCanvas" unique_id=519116766]
+[node name="Root" type="Control" parent="VNCanvas" unique_id=519116766]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="UiCanvas/Ui" unique_id=1555867259]
+[node name="Panel" type="TextureRect" parent="VNCanvas/Root" unique_id=1245663431]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -27,14 +33,32 @@ offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_l1v76")
+expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UiCanvas/Ui/Panel" unique_id=1603299136]
+[node name="RichTextLabel" type="RichTextLabel" parent="VNCanvas/Root/Panel" unique_id=1603299136]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_7biu0")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna. Phasellus lacinia viverra ex ut molestie."
+
+[node name="LocationCanvas" type="CanvasLayer" parent="." unique_id=1095764844]
+
+[node name="TextureRect" type="TextureRect" parent="LocationCanvas" unique_id=479015196]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna. Phasellus lacinia viverra ex ut molestie."
-
-[node name="Location" type="Node2D" parent="." unique_id=1702029457]
+texture = ExtResource("2_00tan")
+expand_mode = 2
+stretch_mode = 4
