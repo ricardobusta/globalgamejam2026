@@ -13,16 +13,18 @@ var location_node: LocationRoot
 const vn_text_panel_on_y: int = 780
 const vn_text_panel_off_y: int = 1500
 const vn_text_animate_duration: float = 0.4
-const vn_text_animate_text_duration: float = 1.5
+const vn_text_animate_text_duration_per_char: float = 0.02
 
 func _ready() -> void:
 	var char1:= async_load_character(placeholder_character)
 	var char2:= async_load_character(placeholder_character)
+	char2.char_protag = true
 	vn_text_panel.visible = false
 	vn_fade_panel.visible = false
 	await async_set_location(placeholder_location, 0.0)
-	await async_show_text("Lorem ipsum", char1)
-	await async_show_text("Testing something", null)
+	await async_show_texts(["Toasty","massa"], char2)
+	await async_show_text("Eae mano", char1)
+	await async_show_text("E todos viveram felizes para sempre", null)
 	await async_set_location(placeholder_location, 1.0)
 	await async_show_text("a", null)
 	await async_show_text("b", null)
@@ -63,11 +65,12 @@ func async_set_location(res: String, fade_duration: float) -> void:
 		await tween.finished
 		vn_fade_panel.visible = false
 	
-	
 func async_show_text(text: String, character: CharacterRoot) -> void:
+	await async_show_texts([text], character)
+	
+func async_show_texts(texts: Array[String], character: CharacterRoot) -> void:
 	vn_text_panel.visible = true
 	vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
-	vn_text_label.text = text
 	vn_text_label.visible_ratio = 0.0
 	
 	var tween := create_tween()
@@ -79,11 +82,17 @@ func async_show_text(text: String, character: CharacterRoot) -> void:
 		character.visible = true
 		tween.parallel().tween_property(character, "position:x", character.get_on_position(), vn_text_animate_duration)
 	
-	tween.tween_property(vn_text_label, "visible_ratio", 1.0, vn_text_animate_text_duration)\
-		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	
 	await tween.finished
-	await async_wait_for_click()
+	
+	for text in texts:
+		vn_text_label.visible_ratio = 0.0
+		tween = create_tween()
+		vn_text_label.text = text
+		var text_duration = text.length() * vn_text_animate_text_duration_per_char
+		tween.tween_property(vn_text_label, "visible_ratio", 1.0, text_duration)\
+		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+		await tween.finished
+		await async_wait_for_click()
 	
 	tween = create_tween()
 	tween.tween_property(vn_text_panel, "position:y", vn_text_panel_off_y, vn_text_animate_duration)\
