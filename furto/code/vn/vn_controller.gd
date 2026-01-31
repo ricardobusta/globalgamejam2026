@@ -121,6 +121,8 @@ func wait_for_click() -> void:
 		await get_tree().process_frame
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			return
+		if Input.is_action_just_pressed("ui_accept"):
+			return
 
 
 func show_options(options: Array[String]) -> int:
