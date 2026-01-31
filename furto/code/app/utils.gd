@@ -1,0 +1,27 @@
+extends Node
+
+class_name Utils
+
+static var gameplay_controller: GameplayController = null:
+	get = get_gameplay_controller
+static var inventory_controller: InventoryController = null:
+	get = get_inventory_controller
+
+static func get_gameplay_controller() -> GameplayController:
+	if not is_instance_valid(gameplay_controller):
+		if Engine.get_singleton(&"GameplayController"):
+			gameplay_controller = Engine.get_singleton(&"GameplayController")
+		else:
+			gameplay_controller = GameplayController.new()
+
+	return gameplay_controller
+
+
+static func get_inventory_controller() -> InventoryController:
+	if not is_instance_valid(inventory_controller):
+		if Engine.get_singleton(&"InventoryController"):
+			inventory_controller = Engine.get_singleton(&"InventoryController")
+		else:
+			inventory_controller = InventoryController.new()
+
+	return inventory_controller
