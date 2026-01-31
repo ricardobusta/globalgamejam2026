@@ -16,25 +16,25 @@ const vn_text_animate_duration: float = 0.4
 const vn_text_animate_text_duration: float = 1.5
 
 func _ready() -> void:
-	var char1:= await async_load_character(placeholder_character)
-	var char2:= await async_load_character(placeholder_character)
-	
-	await async_set_location(placeholder_location, 0.0)
+	var char1:= async_load_character(placeholder_character)
+	var char2:= async_load_character(placeholder_character)
 	vn_text_panel.visible = false
 	vn_fade_panel.visible = false
-	await async_show_text("Lorem ipsum")
-	await async_show_text("Testing something")
-	await async_set_location(placeholder_character, 1.0)
-	await async_show_text("a")
-	await async_show_text("b")
+	await async_set_location(placeholder_location, 0.0)
+	await async_show_text("Lorem ipsum", char1)
+	await async_show_text("Testing something", null)
+	await async_set_location(placeholder_location, 1.0)
+	await async_show_text("a", null)
+	await async_show_text("b", null)
 	
 func async_load_character(res: String) -> CharacterRoot:
 	var packed_character := load(res)
-	var char: CharacterRoot = packed_character.instantiate()
-	char.name = char.char_name
-	character_canvas.add_child(char)
-	char.visible = false
-	return char
+	var c: CharacterRoot = packed_character.instantiate()
+	c.name = c.char_name
+	character_canvas.add_child(c)
+	c.visible = false
+	c.position.y = 1080
+	return c
 
 func unload_all_characters():
 	for child in character_canvas.get_children():
@@ -64,7 +64,7 @@ func async_set_location(res: String, fade_duration: float) -> void:
 		vn_fade_panel.visible = false
 	
 	
-func async_show_text(text: String) -> void:
+func async_show_text(text: String, character: CharacterRoot) -> void:
 	vn_text_panel.visible = true
 	vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
 	vn_text_label.text = text
@@ -73,6 +73,12 @@ func async_show_text(text: String) -> void:
 	var tween := create_tween()
 	tween.tween_property(vn_text_panel, "position:y", vn_text_panel_on_y, vn_text_animate_duration)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	if character != null:
+		character.position.x = character.get_off_position()
+		character.visible = true
+		tween.parallel().tween_property(character, "position:x", character.get_on_position(), vn_text_animate_duration)
+	
 	tween.tween_property(vn_text_label, "visible_ratio", 1.0, vn_text_animate_text_duration)\
 		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 	
@@ -83,7 +89,13 @@ func async_show_text(text: String) -> void:
 	tween.tween_property(vn_text_panel, "position:y", vn_text_panel_off_y, vn_text_animate_duration)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		
+	if character != null:
+		tween.parallel().tween_property(character, "position:x", character.get_off_position(), vn_text_animate_duration)
+		
 	await tween.finished
+	
+	if character != null:
+		character.visible = false
 	
 	vn_text_panel.visible = false
 
