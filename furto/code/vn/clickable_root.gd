@@ -43,11 +43,11 @@ func disable_clickable() -> void:
 
 func _on_click() -> void:
 	print("clicou no gato")
-	await vn_controller.show_text("30 pão 1 real", null)
+	await vn_controller.show_text("30 pão 1 real")
 
 
 func on_item_used(item: InventoryItemRoot) -> void:
-	await vn_controller.show_text("Isto é uma coisa.", null)
+	await vn_controller.show_text("Isto é uma coisa.")
 	Utils.inventory_controller.active = null
 
 

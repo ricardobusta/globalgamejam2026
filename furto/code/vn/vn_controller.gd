@@ -68,21 +68,30 @@ func set_location(res: String, fade_duration: float) -> void:
 		vn_root.vn_fade_panel.visible = false
 	
 	
-func show_text(text: String, character: CharacterRoot = null) -> void:
-	await show_texts([text], character)
+func show_text(text: String, options: Dictionary = {}) -> void:
+	await show_texts([text], options)
 	
 	
-func show_texts(texts: Array[String], character: CharacterRoot = null) -> void:
+func show_texts(texts: Array[String], options: Dictionary = {}) -> void:
+	var character: CharacterRoot = options.get("character", null)
+	var name_override: String = options.get("name_override", "")
+	var text_speed: float = 1.0 / options.get("text_speed", 1.0)
+	
 	vn_root.vn_text_panel.visible = true
 	vn_root.vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
 	vn_root.vn_text_label.visible_ratio = 0.0
 	
-	if character != null:
-		vn_root.vn_name_panel.visible = true
-		vn_root.vn_name_panel.position.x = character.get_on_position() - vn_root.vn_name_panel.size.x/2.0
-		vn_root.vn_name_label.text = character.char_name
+	if name_override.is_empty():
+		if character != null:
+			vn_root.vn_name_panel.visible = true
+			vn_root.vn_name_panel.position.x = character.get_on_position() - vn_root.vn_name_panel.size.x/2.0
+			vn_root.vn_name_label.text = character.char_name
+		else:
+			vn_root.vn_name_panel.visible = false
 	else:
-		vn_root.vn_name_panel.visible = false
+		vn_root.vn_name_panel.visible = true
+		vn_root.vn_name_panel.position.x = 1920/2.0 - vn_root.vn_name_panel.size.x/2.0
+		vn_root.vn_name_label.text = name_override
 	
 	var tween := create_tween()
 	tween.tween_property(vn_root.vn_text_panel, "position:y", vn_text_panel_on_y, vn_text_animate_duration)\
@@ -100,10 +109,13 @@ func show_texts(texts: Array[String], character: CharacterRoot = null) -> void:
 		tween = create_tween()
 		vn_root.vn_text_label.text = text
 		var text_duration = text.length() * vn_text_animate_text_duration_per_char
-		tween.tween_property(vn_root.vn_text_label, "visible_ratio", 1.0, text_duration)\
+		tween.tween_property(vn_root.vn_text_label, "visible_ratio", 1.0, text_duration * text_speed)\
 		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-		await tween.finished
+		await wait_for_click_or_tween(tween)
+		vn_root.vn_text_label.visible_ratio = 1.0
+		await get_tree().process_frame
 		await wait_for_click()
+		await get_tree().process_frame
 	
 	tween = create_tween()
 	tween.tween_property(vn_root.vn_text_panel, "position:y", vn_text_panel_off_y, vn_text_animate_duration)\
@@ -120,10 +132,22 @@ func show_texts(texts: Array[String], character: CharacterRoot = null) -> void:
 	vn_root.vn_text_panel.visible = false
 
 
+func wait_for_click_or_tween(tween: Tween) -> void:
+	while true:
+		await get_tree().process_frame
+		if !tween.is_running():
+			return;
+		if Input.is_action_just_pressed("click"):
+			tween.kill()
+			return
+		if Input.is_action_just_pressed("ui_accept"):
+			tween.kill()
+			return
+
 func wait_for_click() -> void:
 	while true:
 		await get_tree().process_frame
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if Input.is_action_just_pressed("click"):
 			return
 		if Input.is_action_just_pressed("ui_accept"):
 			return
