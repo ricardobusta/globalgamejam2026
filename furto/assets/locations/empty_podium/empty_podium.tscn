@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cxqacy4wb6nsg"]
+
+[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_lc6sv"]
+[ext_resource type="Texture2D" uid="uid://40qwlpohxeas" path="res://assets/locations/empty_podium/empty_podium.png" id="2_xpnmg"]
+
+[node name="EmptyPodium" type="Node" unique_id=2024429395]
+script = ExtResource("1_lc6sv")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=200755685]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xpnmg")
+expand_mode = 2
+stretch_mode = 6

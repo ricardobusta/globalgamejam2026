@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://307tro62ukiq"]
 
 [ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_rimka"]
-[ext_resource type="Texture2D" uid="uid://d0duv6oqgjp2q" path="res://assets/locations/placeholder/placeholder.png" id="2_5m00i"]
+[ext_resource type="Texture2D" uid="uid://ckf8eas2invxy" path="res://assets/locations/backstage/backstage.png" id="2_4uoj1"]
 
 [node name="PlaceholderLocation" type="Node" unique_id=2024429395]
 script = ExtResource("1_rimka")
@@ -12,6 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5m00i")
+texture = ExtResource("2_4uoj1")
 expand_mode = 2
 stretch_mode = 6

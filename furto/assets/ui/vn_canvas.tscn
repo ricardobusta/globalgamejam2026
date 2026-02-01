@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://c3u8e8mj4b84h"]
 
-[ext_resource type="Script" path="res://code/vn/vn_root.gd" id="1_jihrm"]
+[ext_resource type="Script" uid="uid://c3rdqgasncisv" path="res://code/vn/vn_root.gd" id="1_jihrm"]
 [ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="1_k31s1"]
 [ext_resource type="Theme" uid="uid://dj207vo5msjl7" path="res://themes/options_button_theme.tres" id="2_6ds0g"]
 
 [sub_resource type="Theme" id="Theme_7biu0"]
 RichTextLabel/font_sizes/normal_font_size = 32
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jihrm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_tdj6m"]
+Panel/styles/panel = SubResource("StyleBoxFlat_jihrm")
+
 [sub_resource type="Theme" id="Theme_6ds0g"]
+Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 32
 
 [node name="VNCanvas" type="CanvasLayer" unique_id=1433724896]
@@ -28,10 +35,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
+offset_left = 60.0
 offset_top = -300.0
-offset_right = -2.0
-offset_bottom = 0.0013427734
+offset_right = -60.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -59,12 +66,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -103.0
-offset_top = -22.0
-offset_right = 102.60986
-offset_bottom = 18.0
+offset_left = -150.0
+offset_top = -27.0
+offset_right = 150.0
+offset_bottom = 13.0
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_tdj6m")
 
 [node name="NameLabel" type="Label" parent="Root/TextPanel/NamePanel" unique_id=1359437075]
 layout_mode = 1

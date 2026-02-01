@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bqvh64yd6wrwh"]
+
+[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_o63q1"]
+[ext_resource type="Texture2D" uid="uid://brs4klciwi5gq" path="res://assets/locations/reveal/reveal.png" id="2_nq1be"]
+
+[node name="Reveal" type="Node" unique_id=2024429395]
+script = ExtResource("1_o63q1")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=200755685]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nq1be")
+expand_mode = 2
+stretch_mode = 6

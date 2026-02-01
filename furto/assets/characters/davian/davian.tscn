@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d7jvol4yiupe"]
 
 [ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_g4eow"]
-[ext_resource type="Texture2D" uid="uid://e4liwakcwc1i" path="res://assets/characters/davian/davian.jpg" id="2_xjxtb"]
+[ext_resource type="Texture2D" uid="uid://b668e8k1m2fa" path="res://assets/characters/davian/davian.png" id="2_xjxtb"]
 
 [node name="Davian" type="Control" unique_id=321236823]
 layout_mode = 3

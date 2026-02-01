@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d1pq6jcyp7wdm"]
+
+[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_1kloe"]
+[ext_resource type="Texture2D" uid="uid://ibj873ldl6fg" path="res://assets/locations/venue/venue.png" id="2_1klnk"]
+
+[node name="Venue" type="Node" unique_id=2024429395]
+script = ExtResource("1_1kloe")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=200755685]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1klnk")
+expand_mode = 2
+stretch_mode = 6

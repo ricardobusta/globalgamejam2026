@@ -15,12 +15,18 @@ func _ready() -> void:
 	await _act_2()
 
 func _act_1() -> void:
+	# characters
 	var alice:= vn_controller.load_character("res://assets/characters/alice/alice.tscn")
 	var davian:= vn_controller.load_character("res://assets/characters/davian/davian.tscn")
 	var protagonist:= vn_controller.load_character("res://assets/characters/protagonist/protagonist.tscn")
-	var placeholder_location:= "res://assets/locations/placeholder/placeholder_location.tscn"
+	# locations
+	var black:= "res://assets/locations/black/black.tscn"
+	var venue:= "res://assets/locations/venue/venue.tscn"
+	var backstage:= "res://assets/locations/backstage/backstage.tscn"
+	var reveal := "res://assets/locations/reveal/reveal.tscn"
+	var empty_podium := "res://assets/locations/empty_podium/empty_podium.tscn"
 
-	await vn_controller.set_location(placeholder_location, 0.0)
+	await vn_controller.set_location(black, 0.0)
 
 	await vn_controller.show_texts([
 		"The opening day.",
@@ -28,14 +34,14 @@ func _act_1() -> void:
 		"But it’s worth it."
 		])
 
-	await vn_controller.set_location(placeholder_location, 1.0)
+	await vn_controller.set_location(venue, 1.0)
 
 	await vn_controller.show_texts([
 		"This ain’t my first rodeo as a furry conference volunteer, but it’s my first one here.",
 		"Wanted to help my friend Boris on the organizing team, ended up being dragged here at the same time he had to step out for family reasons. At least my room was covered."
 		])
 
-	await vn_controller.set_location(placeholder_location, 1.0)
+	await vn_controller.set_location(backstage, 1.0)
 	
 	await vn_controller.show_texts([
 		"In just a couple hours, the opening ceremony will take place on the stage. Hundreds of furries from many different places coming together to have a good weekend.",
@@ -52,7 +58,7 @@ func _act_1() -> void:
 		"The directors wanted to keep it a secret from the attendees and reveal it at the opening."
 		])
 
-	await vn_controller.set_location(placeholder_location, 1.0)
+	await vn_controller.set_location(reveal, 1.0)
 
 	await vn_controller.show_texts([
 		"They even made a special podium for it. Covered dome and all that.",
@@ -82,7 +88,7 @@ func _act_1() -> void:
 	
 	await vn_controller.show_texts(["She reaches up to the podium, lifting the cover."])
 	
-	await vn_controller.set_location(placeholder_location, 1.0)
+	await vn_controller.set_location(empty_podium, 1.0)
 	
 	await vn_controller.show_texts(["........", "What?!"])
 	
@@ -105,7 +111,7 @@ func _act_1() -> void:
 	await vn_controller.show_texts(["From the middle of the small crowd, someone calls for attention and steps to the front."])
 	
 	await vn_controller.show_texts(["We got less than two hours to get things ready, so let’s improvise.",
-	"DavianAvian, one of the convention’s founders, the only that remains on the board of directors."], {character=davian, name_override="????"})
+	"Davian Avian, one of the convention’s founders, the only that remains on the board of directors."], {character=davian, name_override="????"})
 	
 	await vn_controller.show_texts(["Now, this is a shitty thing to find out at the last minute, but let’s try to stay calm and not point fingers just yet.",
 	"This is the Noir year, so let’s use that to our advantage."], {character=davian})

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e4liwakcwc1i"
-path="res://.godot/imported/davian.jpg-be7c079de1ae56b185d1cbb5230218e0.ctex"
+uid="uid://b668e8k1m2fa"
+path="res://.godot/imported/davian.png-2b1ff93f3905a496b9aa5c084d4256d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/davian/davian.jpg"
-dest_files=["res://.godot/imported/davian.jpg-be7c079de1ae56b185d1cbb5230218e0.ctex"]
+source_file="res://assets/characters/davian/davian.png"
+dest_files=["res://.godot/imported/davian.png-2b1ff93f3905a496b9aa5c084d4256d8.ctex"]
 
 [params]
 
