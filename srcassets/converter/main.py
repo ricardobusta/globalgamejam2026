@@ -8,138 +8,140 @@ CHOICE_RE = re.compile(r"\[(\d+)\]\s*(.*)")
 IF_RE = re.compile(r"\[if(\d+)\]")
 END_QUESTION_RE = re.compile(r"\[end_question\]")
 
-
 def parse_options(option_string):
-    if option_string.strip() == "":
-        return {}
+	if option_string.strip() == "":
+		return {}
 
-    opts = {}
-    for pair in option_string.split(","):
-        k, v = pair.split("=", 1)
-        k = k.strip()
-        v = v.strip()
+	opts = {}
+	for pair in option_string.split(","):
+		k, v = pair.split("=", 1)
+		k = k.strip()
+		v = v.strip()
 
-        if k in ("character", "scenario"):
-            opts[k] = v
-        elif v.lower() in ("true", "false"):
-            opts[k] = v.lower()
-        elif v.replace(".", "", 1).isdigit():
-            opts[k] = v
-        else:
-            opts[k] = f"\"{v}\""
+		if k in ("character", "scenario"):
+			opts[k] = v
+		elif v.lower() in ("true", "false"):
+			opts[k] = v.lower()
+		elif v.replace(".", "", 1).isdigit():
+			opts[k] = v
+		else:
+			opts[k] = f"\"{v}\""
 
-    return opts
-
+	return opts
 
 def options_to_gd(opts):
-    return "{" + ", ".join(f"{k}={v}" for k, v in opts.items()) + "}"
-
+	return "{" + ", ".join(f"{k}={v}" for k, v in opts.items()) + "}"
 
 def convert(input_path, output_path):
-    lines = Path(input_path).read_text(encoding="utf-8").splitlines()
-    out = []
+	lines = Path(input_path).read_text(encoding="utf-8").splitlines()
+	out = []
 
-    indent = "\t"
+	indent = "\t"
 
-    text_buffer = []
-    current_opts = None
+	text_buffer = []
+	current_opts = None
 
-    in_question = False
-    choices = []
-    branches = {}
-    current_if = None
+	in_question = False
+	choices = []
+	branches = {}
+	current_if = None
 
-    result_declared = False
+	result_declared = False
 
-    def flush_text(target=None):
-        nonlocal text_buffer, current_opts
-        if not text_buffer:
-            return
+	def flush_text(target=None):
+		nonlocal text_buffer, current_opts
+		if not text_buffer:
+			return
 
-        quoted = [f"\"{t}\"" for t in text_buffer]
-        opts = options_to_gd(current_opts or {})
-        line = f'await vn_controller.show_texts([{", ".join(quoted)}], {opts})'
+		quoted = [f"\"{t}\"" for t in text_buffer]
+		opts = options_to_gd(current_opts or {})
+		line = f'await vn_controller.show_texts([{", ".join(quoted)}], {opts})'
 
-        if target is not None:
-            target.append(line)
-        else:
-            out.append(indent + line)
+		if target is not None:
+			target.append(line)
+		else:
+			out.append(indent + line)
 
-        text_buffer = []
-        current_opts = None
+		text_buffer = []
+		current_opts = None
 
-    for raw in lines:
-        line = raw.strip()
-        if not line:
-            continue
+	for raw in lines:
+		line = raw.strip()
+		if not line:
+			continue
 
-        m = ACT_RE.match(line)
-        if m:
-            flush_text()
-            out.append(f"\nfunc _act_{m.group(1)}():")
-            continue
+		m = ACT_RE.match(line)
+		if m:
+			flush_text()
+			out.append(f"\nfunc _act_{m.group(1)}():")
+			continue
 
-        if QUESTION_RE.match(line):
-            flush_text()
-            in_question = True
-            choices = []
-            branches = {}
-            current_if = None
-            continue
+		if QUESTION_RE.match(line):
+			flush_text()
+			in_question = True
+			choices = []
+			branches = {}
+			current_if = None
+			continue
 
-        m = CHOICE_RE.match(line)
-        if in_question and m:
-            choices.append(m.group(2))
-            continue
+		m = CHOICE_RE.match(line)
+		if in_question and m:
+			choices.append(m.group(2))
+			continue
 
-        m = IF_RE.match(line)
-        if m:
-            current_if = int(m.group(1))
-            branches[current_if] = []
-            continue
+		m = IF_RE.match(line)
+		if m:
+			current_if = int(m.group(1))
+			branches[current_if] = []
+			continue
 
-        if END_QUESTION_RE.match(line):
-            assign = "var result =" if not result_declared else "result ="
-            result_declared = True
+		if END_QUESTION_RE.match(line):
+			assign = "var result =" if not result_declared else "result ="
+			result_declared = True
 
-            out.append(indent + f"{assign} await vn_controller.show_options([")
-            for c in choices:
-                out.append(indent * 2 + f"\"{c}\",")
-            out.append(indent + "])\n")
+			out.append(indent + f"{assign} await vn_controller.show_options([")
+			for c in choices:
+				out.append(indent * 2 + f"\"{c}\",")
+			out.append(indent + "])\n")
 
-            out.append(indent + "match result:")
-            for idx, code in branches.items():
-                out.append(indent * 2 + f"{idx}:")
-                out.extend(indent * 3 + l for l in code)
+			out.append(indent + "match result:")
+			for idx, code in branches.items():
+				out.append(indent * 2 + f"{idx}:")
+				out.extend(indent * 3 + l for l in code)
 
-            in_question = False
-            current_if = None
-            continue
+			in_question = False
+			current_if = None
+			continue
 
-        m = OPTIONS_RE.match(line)
-        if m:
-            flush_text()
-            content = m.group(1)
-            opts = parse_options(content)
+		m = OPTIONS_RE.match(line)
+		if m:
+			flush_text()
+			content = m.group(1)
+			opts = parse_options(content)
 
-            if "scenario" in opts:
-                scenario = opts["scenario"]
-                time = opts.get("time", "0.0")
-                out.append(indent + f"await vn_controller.set_location({scenario}, {time})")
-            else:
-                current_opts = opts
-            continue
+			if "fade_in" in opts:
+				time = opts["fade_in"]
+				out.append(indent + f"await vn_controller.fade_screen(1.0, {time})")
+			elif "fade_out" in opts:
+				time = opts["fade_out"]
+				out.append(indent + f"await vn_controller.fade_screen(0.0, {time})")
+			elif "scenario" in opts:
+				scenario = opts["scenario"]
+				time = opts.get("time", "0.0")
+				out.append(indent + f"await vn_controller.set_location({scenario}, {time})")
+			else:
+				current_opts = opts
+			continue
 
-        if in_question and current_if is not None:
-            branches[current_if].append(
-                f'await vn_controller.show_texts(["{line}"], {{}})'
-            )
-        else:
-            text_buffer.append(line)
+		if in_question and current_if is not None:
+			branches[current_if].append(
+				f'await vn_controller.show_texts(["{line}"], {{}})'
+			)
+		else:
+			text_buffer.append(line)
 
-    flush_text()
-    Path(output_path).write_text("\n".join(out), encoding="utf-8")
-
+	flush_text()
+	Path(output_path).write_text("\n".join(out), encoding="utf-8")
 
 if __name__ == "__main__":
-    convert("input.txt", "output.txt")
+	convert("input.txt", "output.txt")

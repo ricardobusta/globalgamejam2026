@@ -313,8 +313,7 @@ And it feels.
 Fitting.
 …….
 
-[scenario=black, time=2.0]
-*Fade to black*
+[fade_out=2.0]
 
 [act2]
 [comment=true]
