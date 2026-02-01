@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://beciq5k5usibp"]
 
 [ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_1nu1q"]
-[ext_resource type="Texture2D" uid="uid://b6oprij5heup1" path="res://assets/characters/baggy/baggy.png" id="2_w5pr0"]
+[ext_resource type="Texture2D" uid="uid://bmtdkujd5068u" path="res://assets/characters/baggy/baggy.png" id="2_w5pr0"]
 
 [node name="Baggy" type="Control" unique_id=321236823]
 layout_mode = 3
@@ -12,9 +12,10 @@ char_protag = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=439839108]
 layout_mode = 0
-offset_left = -462.0
-offset_top = -999.0
-offset_right = 316.91888
-offset_bottom = 33.0
+offset_left = -386.0
+offset_top = -1022.0
+offset_right = 392.91888
+offset_bottom = 10.0
 texture = ExtResource("2_w5pr0")
 expand_mode = 3
+stretch_mode = 4

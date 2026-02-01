@@ -9,7 +9,6 @@ var clicked: ClickableRoot = null
 func _init() -> void:
 	Engine.register_singleton(&"GameplayController", self)
 
-
 func _ready() -> void:
 	await _act_1()
 	await _act_2()
@@ -159,14 +158,24 @@ func _act_1():
 func _act_2():
 	# characters
 	var baggy := vn_controller.load_character("res://assets/characters/baggy/baggy.tscn")
+	var alice := vn_controller.load_character("res://assets/characters/alice/alice.tscn")
+	var davian := vn_controller.load_character("res://assets/characters/davian/davian.tscn")
+	var emma := vn_controller.load_character("res://assets/characters/emma/emma.tscn")
+	var placeholder := vn_controller.load_character("res://assets/characters/placeholder/placeholder.tscn")
 	var noir_davian := vn_controller.load_character("res://assets/characters/noir_davian/noir_davian.tscn")
 	# locations
 	var black := "res://assets/locations/black/black.tscn"
-	await vn_controller.set_location(black, 0.0)
+	var backstage := "res://assets/locations/backstage/backstage.tscn"
+	await vn_controller.set_location(backstage, 0.0)
 	await vn_controller.show_texts(["*A textbox appear, very art deco, with the text now in a different font*"], {comment=true})
 	await vn_controller.show_texts(["November 14th, 2026. 7:30 AM.", "What should have been a fun and wholesome evention for many critters, has devolved into another crime scene.", "A furtive theft, right under everyone’s snouts.", "The target? A valuable piece of art from a renowed artist, which was set to be auctioned tomorrow to benefit the orphans down the street.", "Whoever the lowlife was, i wonder if they knew the weight of their actions while swiping a simple piece of paper.", "No matter. They made a grave mistake."], {thinking=true})
 	await vn_controller.show_texts(["They made the grave mistake of choosing the day that private detective Baggy Baroncy happened to be in town."], {character=baggy})
 	await vn_controller.fade_screen(1.0, 2.0)
+	await vn_controller.show_texts(["Just testing text"], {character=baggy})
+	await vn_controller.show_texts(["Just testing text"], {character=alice})
+	await vn_controller.show_texts(["Just testing text"], {character=baggy})
+	await vn_controller.show_texts(["Just testing text"], {character=emma})
+	await vn_controller.show_texts(["Just testing text"], {character=placeholder})
 	await vn_controller.show_texts(["*Slowly the background fades, in a noir style*"], {})
 	await vn_controller.show_texts(["As my make my entrance, it seems that the fine people are surprised to see my imposing figure.", "Can’t say i blame them."], {thinking=true})
 	await vn_controller.show_texts(["Private Detective Baggy, at your service!"], {character=baggy})
