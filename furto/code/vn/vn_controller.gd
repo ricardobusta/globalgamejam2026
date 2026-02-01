@@ -179,8 +179,15 @@ func show_options(options: Array[String]) -> int:
 	
 	return option_selected_index
 
-func fade_screen(time: float) -> void:
-	pass
+func fade_screen(alpha: float, time: float) -> void:
+	if time > 0:
+		vn_root.vn_fade_panel.visible = true
+		var tween := create_tween()
+		tween.tween_property(vn_root.vn_fade_panel, "color:a", alpha, time)\
+			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		await tween.finished
+		if alpha==0.0:
+			vn_root.vn_fade_panel.visible = false	
 
 func _on_options_button_pressed(index: int) -> void:
 	option_selected_index = index
