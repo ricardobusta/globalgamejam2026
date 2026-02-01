@@ -82,7 +82,7 @@ func show_texts(texts: Array[String], options: Dictionary = {}) -> void:
 	var text_speed: float = 1.0 / options.get("text_speed", 1.0)
 	
 	vn_root.vn_text_panel.visible = true
-	vn_root.vn_text_panel.position = Vector2(0, vn_text_panel_off_y)
+	vn_root.vn_text_panel.position.y = vn_text_panel_off_y
 	vn_root.vn_text_label.visible_ratio = 0.0
 	
 	if name_override.is_empty():
