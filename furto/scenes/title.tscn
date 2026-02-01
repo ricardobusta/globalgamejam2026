@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6oprij5heup1" path="res://assets/characters/baggy/baggy.png" id="2_p6dhs"]
 [ext_resource type="FontFile" uid="uid://bsrjdp0fuupor" path="res://fonts/Limelight/Limelight-Regular.ttf" id="3_b3w7a"]
 [ext_resource type="Theme" uid="uid://bt6nn1uwx8s40" path="res://themes/main_menu_button.tres" id="3_pyl7j"]
+[ext_resource type="FontFile" uid="uid://l06r1wufdmqd" path="res://fonts/Inter/Inter_28pt-Black.ttf" id="4_b3w7a"]
 
 [sub_resource type="Theme" id="Theme_b3w7a"]
 default_font = ExtResource("3_b3w7a")
@@ -54,6 +55,23 @@ offset_bottom = 315.0
 grow_horizontal = 2
 theme = SubResource("Theme_b3w7a")
 text = "FurTo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=880466978]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -821.0
+offset_top = 169.0
+offset_right = -280.0
+offset_bottom = 415.0
+grow_horizontal = 2
+theme = SubResource("Theme_b3w7a")
+theme_override_fonts/font = ExtResource("4_b3w7a")
+theme_override_font_sizes/font_size = 55
+text = "A Furry Mystery Noir"
 horizontal_alignment = 1
 vertical_alignment = 1
 

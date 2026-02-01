@@ -104,6 +104,7 @@ func show_texts(texts: Array[String], options: Dictionary = {}) -> void:
 	
 	if character != null:
 		character.position.x = character.get_off_position()
+		character.position.y = 1080-100
 		character.visible = true
 		tween.parallel().tween_property(character, "position:x", character.get_on_position(), vn_text_animate_duration)
 	

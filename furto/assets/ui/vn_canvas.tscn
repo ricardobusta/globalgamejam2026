@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://c3u8e8mj4b84h"]
 
 [ext_resource type="Script" uid="uid://c3rdqgasncisv" path="res://code/vn/vn_root.gd" id="1_jihrm"]
-[ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="1_k31s1"]
 [ext_resource type="Theme" uid="uid://dj207vo5msjl7" path="res://themes/options_button_theme.tres" id="2_6ds0g"]
+[ext_resource type="Texture2D" uid="uid://ctbp2c8pa36wm" path="res://assets/ui/bg_2.PNG" id="2_mgwlk"]
+[ext_resource type="FontFile" uid="uid://cx4wrrvh5muyh" path="res://fonts/Inter/Inter-VariableFont_opsz,wght.ttf" id="3_mgwlk"]
 [ext_resource type="FontFile" uid="uid://bsrjdp0fuupor" path="res://fonts/Limelight/Limelight-Regular.ttf" id="3_tdj6m"]
-
-[sub_resource type="Theme" id="Theme_7biu0"]
-RichTextLabel/font_sizes/normal_font_size = 42
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jihrm"]
 content_margin_left = 30.0
@@ -24,6 +22,10 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 56
 Label/fonts/font = ExtResource("3_tdj6m")
 Label/styles/normal = SubResource("StyleBoxFlat_jihrm")
+
+[sub_resource type="Theme" id="Theme_7biu0"]
+RichTextLabel/font_sizes/normal_font_size = 42
+RichTextLabel/fonts/normal_font = ExtResource("3_mgwlk")
 
 [node name="VNCanvas" type="CanvasLayer" unique_id=1433724896]
 layer = 10
@@ -43,32 +45,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 60.0
+offset_left = 100.0
 offset_top = -325.0
-offset_right = -60.0
-offset_bottom = -25.0
+offset_right = -100.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("1_k31s1")
+texture = ExtResource("2_mgwlk")
 expand_mode = 1
-
-[node name="TextLabel" type="RichTextLabel" parent="Root/TextPanel" unique_id=606768967]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 27.0
-offset_right = -25.0
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme = SubResource("Theme_7biu0")
-bbcode_enabled = true
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna."
-scroll_active = false
 
 [node name="NameLabel" type="Label" parent="Root/TextPanel" unique_id=1359437075]
 layout_mode = 1
@@ -85,6 +70,23 @@ theme = SubResource("Theme_6ds0g")
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextLabel" type="RichTextLabel" parent="Root/TextPanel" unique_id=606768967]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = 49.0
+offset_right = -110.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_7biu0")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus lacinia euismod. Vestibulum et lectus dignissim, dignissim lorem lacinia, porttitor ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tellus massa, gravida vel erat eget, tincidunt imperdiet urna."
+scroll_active = false
 
 [node name="OptionsLayout" type="VBoxContainer" parent="Root" unique_id=1762454750]
 layout_mode = 1
