@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b2r3cvia164e7"]
 
 [ext_resource type="Script" uid="uid://cvg8q01an3jp6" path="res://code/app/title_scene_controller.gd" id="1_4ignj"]
-[ext_resource type="Texture2D" uid="uid://63c4h7atkl3l" path="res://assets/ui/title.png" id="2_p6dhs"]
+[ext_resource type="Texture2D" uid="uid://b6oprij5heup1" path="res://assets/characters/baggy/baggy.png" id="2_p6dhs"]
 [ext_resource type="Theme" uid="uid://bt6nn1uwx8s40" path="res://themes/main_menu_button.tres" id="3_pyl7j"]
 
 [sub_resource type="Theme" id="Theme_b3w7a"]
@@ -17,14 +17,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ignj")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1291278277]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=851455616]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1291278277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 774.0
+offset_top = 10.0
+offset_right = 301.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_p6dhs")
+stretch_mode = 4
+flip_h = true
 
 [node name="Label" type="Label" parent="." unique_id=1431093446]
 layout_mode = 1
