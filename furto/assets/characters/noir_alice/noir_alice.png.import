@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhpqor0f0k0vt"
-path="res://.godot/imported/victim.png-9689c946e6da24205d556a1351fbd48d.ctex"
+uid="uid://seg8xnh5dc08"
+path="res://.godot/imported/noir_alice.png-7af1b4c86d18c741036fc4cfe71fce87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/victim/victim.png"
-dest_files=["res://.godot/imported/victim.png-9689c946e6da24205d556a1351fbd48d.ctex"]
+source_file="res://assets/characters/noir_alice/noir_alice.png"
+dest_files=["res://.godot/imported/noir_alice.png-7af1b4c86d18c741036fc4cfe71fce87.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clcnsb5l5bc2x"
-path="res://.godot/imported/staff_1.png-ae2173b55eae7b1c339062591ed47342.ctex"
+uid="uid://d2iklhrltqxbi"
+path="res://.godot/imported/noir_davian.png-7d7688d4c53076cd69544b9ab5f1ef26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/staff_1/staff_1.png"
-dest_files=["res://.godot/imported/staff_1.png-ae2173b55eae7b1c339062591ed47342.ctex"]
+source_file="res://assets/characters/noir_davian/noir_davian.png"
+dest_files=["res://.godot/imported/noir_davian.png-7d7688d4c53076cd69544b9ab5f1ef26.ctex"]
 
 [params]
 

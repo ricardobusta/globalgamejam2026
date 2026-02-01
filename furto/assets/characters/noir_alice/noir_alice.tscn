@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b58e01lkgpphy"]
+
+[ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_hiwq0"]
+[ext_resource type="Texture2D" uid="uid://seg8xnh5dc08" path="res://assets/characters/noir_alice/noir_alice.png" id="2_ciwnm"]
+
+[node name="Alice" type="Control" unique_id=321236823]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hiwq0")
+char_name = "Mrs. Alice"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=439839108]
+layout_mode = 0
+offset_left = 356.0
+offset_top = -919.0
+offset_right = 1134.919
+offset_bottom = 113.0
+scale = Vector2(-1, 1)
+texture = ExtResource("2_ciwnm")
+expand_mode = 3
+stretch_mode = 4
+flip_h = true

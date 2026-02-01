@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://b48oddjrdpm6"]
 
 [ext_resource type="Script" uid="uid://brug8a24ejh0n" path="res://code/app/credits_scene_controller.gd" id="1_0bpdh"]
+[ext_resource type="Theme" uid="uid://bt6nn1uwx8s40" path="res://themes/main_menu_button.tres" id="2_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://seg8xnh5dc08" path="res://assets/characters/noir_alice/noir_alice.png" id="2_2fbfq"]
+[ext_resource type="Texture2D" uid="uid://d2iklhrltqxbi" path="res://assets/characters/noir_davian/noir_davian.png" id="3_8gwij"]
+
+[sub_resource type="Theme" id="Theme_0ctdu"]
+RichTextLabel/font_sizes/bold_font_size = 30
+RichTextLabel/font_sizes/italics_font_size = 60
+RichTextLabel/font_sizes/normal_font_size = 40
 
 [node name="Credits" type="Control" unique_id=1955581996]
 layout_mode = 3
@@ -11,42 +19,79 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0bpdh")
 
-[node name="BackButton" type="Button" parent="." unique_id=1569477391]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1489050733]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -175.0
-offset_right = 21.0
-offset_bottom = -144.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Back"
-
-[node name="Label" type="Label" parent="." unique_id=465802850]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -143.72
-offset_right = 400.0
-offset_bottom = 143.72
 grow_horizontal = 2
 grow_vertical = 2
-text = "Fernando
-Ismalia
-Lamartine
-Lara
-Matheus
-Ricardo
-Tito
 
-Special Thanks:
+[node name="Alice" type="TextureRect" parent="." unique_id=314761425]
+layout_mode = 0
+offset_left = 2053.0
+offset_top = -49.0
+offset_right = 3048.2378
+offset_bottom = 1375.2134
+scale = Vector2(-1, 1)
+texture = ExtResource("2_2fbfq")
+expand_mode = 3
+stretch_mode = 4
+flip_h = true
+
+[node name="Davian" type="TextureRect" parent="." unique_id=513301274]
+layout_mode = 0
+offset_left = 809.0
+offset_top = -83.0
+offset_right = 1750.6787
+offset_bottom = 1359.714
+scale = Vector2(-1, 1)
+texture = ExtResource("3_8gwij")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1417721564]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0ctdu")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[i]Credits[/i]
+
+[b]Story and Design[/b]
+Matheus Roberto
+[b]Programming[/b]
+Ismalia Santiago
+Ricardo Bustamante
+[b]Puzzle Design[/b]
+Fernando Rosell
+[b]Character Design[/b]
+Lara Monteiro
+[b]Game Concept[/b]
+Lamartine Queiroga
+[b]Special Thanks[/b]
+T6to
 Mariana
-Heitortr"
+Heitor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=1569477391]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -153.0
+offset_right = -88.0
+offset_bottom = -68.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_2ckv8")
+text = "Back"
