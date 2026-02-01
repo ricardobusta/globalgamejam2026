@@ -15,8 +15,9 @@ var location_node: LocationRoot
 var option_buttons: Array[Button] = []
 var option_selected_index: int
 
-func _init() -> void:
-	Engine.register_singleton(&"VNController", self)
+
+#func _init() -> void:
+	#Engine.register_singleton(&"VNC", self)
 
 
 func _ready():
@@ -81,11 +82,11 @@ func show_texts(texts: Array[String], options: Dictionary = {}) -> void:
 	var name_override: String = options.get("name_override", "")
 	var text_speed: float = 1.0 / options.get("text_speed", 1.0)
 	var is_thought: bool = options.get("thinking", false)
-	
+
 	vn_root.vn_text_panel.visible = true
 	vn_root.vn_text_panel.position.y = vn_text_panel_off_y
 	vn_root.vn_text_label.visible_ratio = 0.0
-	
+
 	if name_override.is_empty():
 		if character != null:
 			vn_root.vn_name_label.visible = true

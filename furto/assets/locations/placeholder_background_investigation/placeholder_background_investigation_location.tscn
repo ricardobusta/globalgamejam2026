@@ -33,6 +33,7 @@ script = ExtResource("4_1hc0a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1000424717]
 scale = Vector2(1.3798921, 1.4322143)
 shape = SubResource("RectangleShape2D_1hc0a")
+debug_color = Color(0.03529412, 0.6, 0.7019608, 0.41960785)
 
 [node name="Cat" type="TextureRect" parent="Area2D" unique_id=624597944 node_paths=PackedStringArray("shortcut_context")]
 physics_interpolation_mode = 0
@@ -48,4 +49,4 @@ shortcut_context = NodePath("..")
 texture = ExtResource("3_ebiql")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="input_event" from="Area2D" to="Area2D" method="on_click"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

@@ -5,13 +5,24 @@ class_name GameplayController
 @onready var vn_controller: VNController = $VNController
 @export var placeholder_background_investigation_location: String = "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
 var clicked: ClickableRoot = null
+var width: float = 0.0 : get = get_width
+var height: float = 0.0 : get = get_height
+
 
 func _init() -> void:
-	Engine.register_singleton(&"GameplayController", self)
+	Engine.register_singleton(&"GC", self)
 
 func _ready() -> void:
 	await _act_1()
 	await _act_2()
+	await _act_3()
+
+func get_width() -> float:
+	return get_viewport().get_visible_rect().end.x
+
+
+func get_height() -> float:
+	return get_viewport().get_visible_rect().end.y
 
 
 func _act_1():
@@ -156,6 +167,7 @@ func _act_1():
 	await vn_controller.show_texts(["He puts a fedora hat on top of Baggy’s head.", "And it feels.", "Fitting.", "……."], {thinking=true})
 	await vn_controller.fade_screen(0.0, 2.0)
 
+
 func _act_2():
 	# characters
 	var baggy := vn_controller.load_character("res://assets/characters/baggy/baggy.tscn")
@@ -178,3 +190,9 @@ func _act_2():
 	await vn_controller.show_texts(["There’s a pause in his speech."], {thinking=true})
 	await vn_controller.show_texts(["Yes, a valuable piece of art was stolen today, before being exposed to the public."], {character=noir_davian})
 	await vn_controller.show_texts(["* go over all question before continuing *"], {comment=true})
+
+
+func _act_3():
+	# location
+	var investigation := "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
+	await vn_controller.set_location(investigation, 0.0)

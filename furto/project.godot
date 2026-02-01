@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Furto"
+config/name="FurTo"
 run/main_scene="uid://b2r3cvia164e7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://c37b2fkx70058"
+
+[autoload]
+
+C="*uid://b3ur10onq0i3r"
+GC="*uid://br8qq2rug0eoh"
 
 [debug]
 
