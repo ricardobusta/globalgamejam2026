@@ -12,9 +12,9 @@ char_protag = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=439839108]
 layout_mode = 0
-offset_left = -294.0
-offset_top = -1033.0
-offset_right = 484.91888
-offset_bottom = -1.0
+offset_left = -462.0
+offset_top = -999.0
+offset_right = 316.91888
+offset_bottom = 33.0
 texture = ExtResource("2_w5pr0")
 expand_mode = 3
