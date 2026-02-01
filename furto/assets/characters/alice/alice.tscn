@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d17gjg6pk4fb2"]
 
 [ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_4enfn"]
-[ext_resource type="Texture2D" uid="uid://seg8xnh5dc08" path="res://assets/characters/noir_alice/noir_alice.png" id="2_xmj3r"]
+[ext_resource type="Texture2D" uid="uid://jcgltvc0djuc" path="res://assets/characters/alice/alice.png" id="2_xmj3r"]
 
 [node name="Alice" type="Control" unique_id=321236823]
 layout_mode = 3

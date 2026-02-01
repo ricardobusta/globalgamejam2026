@@ -323,9 +323,9 @@ Fitting.
 
 [thinking=true]
 November 14th, 2026. 7:30 AM.
-What should have been a fun and wholesome evention for many critters, has devolved into another crime scene.
+What should have been a fun and wholesome event for many critters, has devolved into another crime scene.
 A furtive theft, right under everyone’s snouts.
-The target? A valuable piece of art from a renowed artist, which was set to be auctioned tomorrow to benefit the orphans down the street.
+The target? A valuable piece of art from a renowned artist, which was set to be auctioned tomorrow to benefit the orphans down the street.
 Whoever the lowlife was, i wonder if they knew the weight of their actions while swiping a simple piece of paper.
 No matter. They made a grave mistake.
 
@@ -336,7 +336,7 @@ They made the grave mistake of choosing the day that private detective Baggy Bar
 *Slowly the background fades, in a noir style*
 
 [thinking=true]
-As my make my entrance, it seems that the fine people are surprised to see my imposing figure.
+As I make my entrance, it seems that the fine people are surprised to see my imposing figure.
 Can’t say i blame them.
 
 [character=baggy]
@@ -347,7 +347,7 @@ I reach my hand to the fine crow gentleman that seemed to be in command of the s
 There’s some shock in his face, but still he grips my hand in a firm shake.
 
 [character=noir_davian]
-...nice to meet you, mr Baggy.
+...nice to meet you, Mr Baggy. I’m Davian Avian.
 
 [character=baggy]
 I’ve been called in to investigate a case of theft, is that right?
@@ -364,5 +364,226 @@ There’s a pause in his speech.
 [character=noir_davian]
 Yes, a valuable piece of art was stolen today, before being exposed to the public.
 
-[]
-WIP ---
+[comment=true]
+* go over all question before continuing *
+
+[question]
+[0] Who had access to it?
+[1] Describe the artpiece.
+[2] When was it last seen?
+
+[if0]
+[character=baggy]
+Tell me mr Avian, who had direct access to the stolen item?
+
+[character=noir_davian]
+Hmmm, i guess everyone from the staff. It didn’t require any special security, really, we never had an incident like this.
+
+[thinking=true]
+Everyone, huh? Quite a large number of suspects.
+It seems I have my work cut out for me.
+
+[if1]
+[character=baggy]
+Could you describe the artpiece? In detail, if possible.
+
+[character=noir_davian]
+It’s a traditional canvas painting, 16 by 20 inches, made by Alice Meowlice.
+It features a horned white feline creature sitting below a tree, overlooking the stormy seas.
+Many observers note that the creature’s deep and distant gaze evoke feelings of introspection, embracing moments of peace before returning to life’s tempests.
+
+[thinking=true]
+By that description, it looks like it could be sold for a hefty price.
+
+[if2]
+[character=baggy]
+When was the item last seen by anyone in the team?
+
+[character=noir_davian]
+From what I've been told, it was just after the team arrived today. They checked the podium before moving it to where it sits now, and the canvas was still there.
+
+[character=baggy]
+Moved? Where was it before?
+
+[character=noir_davian]
+Yes, it was in the storage room until last night.
+
+[thinking=true]
+Interesting. I'll have to check that out.
+
+[comment=true]
+*End of questionnaire*
+
+[thinking=true]
+That's enough for me to start investigating.
+
+[character=baggy]
+Very well, Mr Avian, I’ll start taking a look around.
+
+[thinking=true]
+He nods, beckoning me to follow.
+As we leave the site, I notice the curious stares folks throw at me.
+I'm used to not being welcomed, but this feels more like I'm stranded in a different epoch.
+What a queer bunch.
+
+[comment=true]
+*Change to deposit room*
+
+[thinking=true]
+The crow leads me to a dim-lit deposit room.
+Boxes are spread through the floor and piling up to the ceiling, colorful banners drape from the walls in an erratic manner.
+
+[character=noir_davian]
+Here we are.
+
+[thinking=true]
+He shows me a spot in the ground where the dust gives space for a square shape.
+
+[character=noir_davian]
+The guys came in the morning to carry the podium, must've been around 6 AM.
+I can't tell exactly who was tasked with carrying it, we just grabbed everyone that wasn't busy.
+
+[thinking=true]
+He seems very cautelous in not giving specifics.
+I am not sure if he's being too honest, or too trusting to point fingers at his own staff.
+Looking around, there’s still plenty of products waiting to be handled.
+
+[character=baggy]
+Mind if I take a look around?
+
+[character=noir_davian]
+Of course, see if you can find anything.
+
+[comment=true]
+*change BG if possible, to the boxes*
+
+[thinking=true]
+I take my leave, squeezing around the cramped shelves.
+It is not easy to move around. Furniture has been pushed aside to make way for more boxes.
+A few painted boards with cartoon drawings stand in the way. Turning one aside, it reveals a badger gentleman, wearing a trench coat.
+If not for the situation, I might as well believe it was a mirror!
+Just behind it, I see something peculiar hanging from a shelf.
+
+[comment=true]
+*show patch of fur*
+
+[thinking=true]
+A patch of indigo and pink fur seems to have been ripped from someone.
+Inspecting the shelf, it is broken in the corner, forming a sharp edge.
+It might be nothing, but I'll hang onto it anyway.
+
+[comment=true]
+*change back to previous scenario*
+
+[thinking=true]
+Besides that, I don't see much out of the ordinary.
+I return to the crow, who is speaking with some folks.
+
+[character=Baggy]
+Mr Avian, I'm afraid I haven't gathered much.
+I did find this, however. Does it mean anything to you?
+
+He takes the patch of fur into his hands, facing it to the light.
+
+[character=noir_davian]
+Hmmm, outside of it being from a fursuit, not much.
+
+[thinking= true]
+A wolf from the folks gathered around steps to see it closer.
+
+[name=Wolf]
+Hey, i know that!
+
+[thinking=true]
+He takes it from the crow's hands.
+What I did not expect, however, was for him to sniff it.
+
+[name=Wolf]
+Yeah, totally! Smells like raspberries!
+This is from Beary, one of our friends.
+
+[character=noir_davian]
+Beary? The hell was her suit doing here?
+
+[name=Wolf]
+I dunno man, i know she came to town early but i don't remember her being at the venue.
+Actually, I haven't seen her online since yesterday.
+
+[character=Baggy]
+May I ask where this Beary is staying at?
+
+[character=noir_davian]
+Yeah, she's staying here in the hotel.
+Room 2418, right?
+
+[thinking=true]
+The wolf nods.
+
+[character=Baggy]
+Very well, then. I'll go talk to her while you folks keep doing your thing here.
+
+[thinking=true]
+The crow nods his head, while the wolf seems a bit apprehensive.
+As I return to the backstage, the crew is in a hurry, no doubt exacerbated by the missing art piece.
+A sharply-dressed feline approaches as I enter the hall. Her eyes meet mine, and I sense familiarity in her gaze.
+
+[character=noir_alice]
+Look at that! You look great in the Baggy suit, man!
+
+[thinking=true]
+She addresses me as if we were long time companions, in complete opposition to how every fur has treated me so far.
+It is heartwarming to see a welcoming face, but I wish I could reciprocate the familiarity.
+
+[question]
+[0] Forgive me ma'am, it seems I have forgotten your name.
+[1] It's best if I introduce myself proper.
+
+[if0]
+[character=Baggy]
+Forgive me, ma'am. My work takes me to many places, and often times all the faces blur into one.
+If we have met before, may I ask your name again?
+
+[thinking=true]
+She stops for a second, staring at me, as if waiting for a follow up.
+I find it more appropriate to let her answer in her own time.
+
+[character=noir_alice]
+…I'm Alice…
+
+[character=Baggy]
+A pleasure to meet you again, miss Alice.
+
+[character=noir_alice]
+Anyway…
+Did you find anything in there?
+
+[character=Baggy]
+About the investigation, yes? I heard it was your art piece that was stolen.
+See, I found some patch of fur at the place the painting was stored at.
+I have been told it matches with one called Beary.
+
+[character=noir_alice]
+Beary? I've seen her in the last few cons, she's always hanging out with the crew after the event ends.
+
+[thinking=true]
+I see. She's a regular, then.
+
+[character=Baggy]
+That's good to know. I'm heading to her hotel room now, it seems she hasn't been heard of since yesterday.
+
+[character=noir_alice]
+I hope she's alright. Take care, uh, Mr Baggy…
+
+[thinking=true]
+I say my goodbye, and tip my fedora in respect.
+Her eyes tell me she didn't appreciate my respect.
+
+[comment=true]
+*change scenery to convention*
+
+I head to the elevators, and on the way I see a venue already filled with furs of the most diverse species.
+A few of them stop me and ask for a photograph.
+It's an unusual request for me, but I indulge them for a second.
+At the elevator hall, I call the lift and wait. A number lights up atop the doors, showing floor numbers in the dozens.
+To my side, I hear soft pawsteps from high heels on carpeted floors.
+I turn around to see a black panther. Her eyes stare deep into mine, confidence flowing from them and seeping into her firm gait.

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b58e01lkgpphy"]
 
 [ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_hiwq0"]
-[ext_resource type="Texture2D" uid="uid://seg8xnh5dc08" path="res://assets/characters/noir_alice/noir_alice.png" id="2_ciwnm"]
+[ext_resource type="Texture2D" uid="uid://jcgltvc0djuc" path="res://assets/characters/alice/alice.png" id="2_hiwq0"]
 
 [node name="Alice" type="Control" unique_id=321236823]
 layout_mode = 3
@@ -16,7 +16,7 @@ offset_top = -919.0
 offset_right = 1134.919
 offset_bottom = 113.0
 scale = Vector2(-1, 1)
-texture = ExtResource("2_ciwnm")
+texture = ExtResource("2_hiwq0")
 expand_mode = 3
 stretch_mode = 4
 flip_h = true
