@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cvg8q01an3jp6" path="res://code/app/title_scene_controller.gd" id="1_4ignj"]
 [ext_resource type="Texture2D" uid="uid://b6oprij5heup1" path="res://assets/characters/baggy/baggy.png" id="2_p6dhs"]
+[ext_resource type="FontFile" uid="uid://bsrjdp0fuupor" path="res://fonts/Limelight/Limelight-Regular.ttf" id="3_b3w7a"]
 [ext_resource type="Theme" uid="uid://bt6nn1uwx8s40" path="res://themes/main_menu_button.tres" id="3_pyl7j"]
 
 [sub_resource type="Theme" id="Theme_b3w7a"]
+default_font = ExtResource("3_b3w7a")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 180
 
@@ -45,10 +47,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -781.0
-offset_top = 71.0
-offset_right = -282.0
-offset_bottom = 317.0
+offset_left = -821.0
+offset_top = 69.0
+offset_right = -280.0
+offset_bottom = 315.0
 grow_horizontal = 2
 theme = SubResource("Theme_b3w7a")
 text = "FurTo"
