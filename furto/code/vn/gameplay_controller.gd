@@ -165,6 +165,9 @@ func _act_1() -> void:
 	
 	await vn_controller.show_texts(["Guess they’re familiar with each other."])
 	
+	while true:
+		await vn_controller.show_texts(["WIP game over for now"])
+	
 	vn_controller.unload_all_characters()
 	
 func _act_2() -> void:
