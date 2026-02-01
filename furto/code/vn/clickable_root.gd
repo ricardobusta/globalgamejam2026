@@ -42,11 +42,13 @@ func disable_clickable() -> void:
 
 
 func on_click(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	await Utils.vn_controller.show_text("30 pão 1 real", {})
+	#await vn_controller.show_text("30 pão 1 real", {})
+	print("30 pão 1 real")
 
 
 func _on_item_used(_item: InventoryItemRoot) -> void:
-	await Utils.vn_controller.show_text("Isto é uma coisa.", {})
+	#await vn_controller.show_text("Isto é uma coisa.", {})
+	print("Isto é uma coisa")
 
 
 func on_item_used(item: InventoryItemRoot) -> void:

@@ -1,13 +1,26 @@
+@tool
+
 extends Node
 
 class_name Utils
 
+static var cursor: Cursor = null:
+	get = get_cursor
 static var gameplay_controller: GameplayController = null:
 	get = get_gameplay_controller
 static var inventory_controller: InventoryController = null:
 	get = get_inventory_controller
 static var vn_controller: VNController = null:
 	get = get_vn_controller
+
+static func get_cursor() -> Cursor:
+	if not is_instance_valid(cursor):
+		if Engine.get_singleton(&"Cursor"):
+			cursor = Engine.get_singleton(&"Cursor")
+		else:
+			cursor = Cursor.new()
+
+	return cursor
 
 static func get_gameplay_controller() -> GameplayController:
 	if not is_instance_valid(gameplay_controller):

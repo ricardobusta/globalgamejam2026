@@ -6,6 +6,7 @@
 
 [node name="GameplayRoot" type="Node" unique_id=654853788]
 script = ExtResource("1_7biu0")
+placeholder_background_investigation_location = null
 
 [node name="VNController" type="Node" parent="." unique_id=521650082]
 script = ExtResource("2_ct7aa")

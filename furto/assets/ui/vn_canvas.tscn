@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3u8e8mj4b84h"]
 
-[ext_resource type="Script" uid="uid://c3rdqgasncisv" path="res://code/vn/vn_root.gd" id="1_jihrm"]
+[ext_resource type="Script" path="res://code/vn/vn_root.gd" id="1_jihrm"]
 [ext_resource type="Texture2D" uid="uid://dccxrtcsne7xs" path="res://assets/ui/text_bg.png" id="1_k31s1"]
 [ext_resource type="Theme" uid="uid://dj207vo5msjl7" path="res://themes/options_button_theme.tres" id="2_6ds0g"]
 
