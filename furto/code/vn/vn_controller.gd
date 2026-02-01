@@ -80,6 +80,7 @@ func show_texts(texts: Array[String], options: Dictionary = {}) -> void:
 	var character: CharacterRoot = options.get("character", null)
 	var name_override: String = options.get("name_override", "")
 	var text_speed: float = 1.0 / options.get("text_speed", 1.0)
+	var is_thought: bool = options.get("thinking", false)
 	
 	vn_root.vn_text_panel.visible = true
 	vn_root.vn_text_panel.position.y = vn_text_panel_off_y
@@ -111,7 +112,7 @@ func show_texts(texts: Array[String], options: Dictionary = {}) -> void:
 	for text in texts:
 		vn_root.vn_text_label.visible_ratio = 0.0
 		tween = create_tween()
-		vn_root.vn_text_label.text = text
+		vn_root.vn_text_label.text = "[color=#09f]%s[/color]" % text if is_thought else text
 		var text_duration = text.length() * vn_text_animate_text_duration_per_char
 		tween.tween_property(vn_root.vn_text_label, "visible_ratio", 1.0, text_duration * text_speed)\
 		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)

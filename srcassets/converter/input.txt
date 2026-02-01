@@ -1,0 +1,324 @@
+[act1]
+[scenario=black,time=0.0]
+
+[]
+The opening day.
+Such a chaotic day for the staff.
+But it’s worth it.
+
+[scenario=venue,time=1.0]
+
+[]
+This ain’t my first rodeo as a furry conference volunteer, but it’s my first one here.
+Wanted to help my friend Boris on the organizing team, ended up being dragged here at the same time he had to step out for family reasons. At least my room was covered.
+
+[scenario=backstage,time=1.0]
+
+[]
+In just a couple hours, the opening ceremony will take place on the stage. Hundreds of furries from many different places coming together to have a good weekend.
+That’s one of the reasons why I do this. You don’t get much recognition, but it’s nice seeing everyone smile and laugh, just like i did in my first few cons.
+In the meantime, gotta make sure everything is in order.
+I check in with some of our guests of honor. We got a good cast this year, gotta admit.
+Rocket Rangoon, WildPause…
+And two i don’t really know too much about.
+[color=red]Alice Meowlice[/color] and [color=red]Emma Panther[/color].
+Folks in the group chat told me to keep an eye on them, apparently they had some drama a good while ago and had fallen out.
+Used to be good friends, from what i’ve heard. Weird that they accepted to be here at the same time.
+They haven’t looked each other in the face ever since they arrived, and so far we’ve had no issues.
+Alice has even donated one of her original arts from back in the day, apparently it’s one of her more iconic works.
+The directors wanted to keep it a secret from the attendees and reveal it at the opening.
+
+[scenario=reveal,time=1.0]
+
+[thinking=true]
+They even made a special podium for it. Covered dome and all that.
+Not even staff has been shown it.
+
+[name=????]
+Wanna see what it looks like?
+
+[thinking=true]
+I turn to face the voice, now seeing Alice looking at the podium.
+
+[character=alice]
+Oh, don’t worry about it, i’ve seen everyone giving it a peek. Plus, i’ve been told that staff won’t be able to participate on the auction, so as long as you don’t tell…
+
+[question]
+[0] Uh, sure? If it is not a problem.
+[1] I’m actually pretty curious, lemme see!
+[2] I really don’t want to get in trouble…
+
+[if0]
+[character=alice]
+No problem at all, man!
+
+[if1]
+[character=alice]
+Heh, knew it.
+
+[if2]
+[character=alice]
+C’mon, it’s no big deal. It’ll be our little secret.
+
+[end_question]
+
+[thinking=true]
+She reaches up to the podium, lifting the cover.
+
+[scenario=empty_podium,time=1.0]
+
+[thinking=true]
+…
+What?
+
+[character=alice]
+Wait, where’s…?
+
+[]
+It’s empty?!
+
+[character=alice]
+Hey guys, the charity art was supposed to be here, right?
+
+[thinking=true]
+Folks start to turn around, and worry spreads through everyone’s faces.
+
+[name=Staff Member 1]
+The hell…?
+
+[name=Staff Member 2]
+Who took it?!
+
+[thinking=true]
+Soon, everyone is gathering around the empty podium, some asking if anyone saw anything, some covering their mouths and silently worrying.
+
+[name=????]
+Alright everyone, listen up!
+
+[thinking=true]
+From the middle of the small crowd, someone calls for attention and steps to the front.
+
+[character=davian, name=????]
+We got less than two hours to get things ready, so let’s improvise.
+Davian Avian, one of the convention’s founders, the only that remains on the board of directors.
+
+[character=davian]
+Now, this is a shitty thing to find out at the last minute, but let’s try to stay calm and not point fingers just yet.
+This is the Noir year, so let’s use that to our advantage.
+
+[thinking=true]
+He points to the empty podium.
+
+[character=davian]
+We’ll play it up as a treasure hunt. Everyone at the stage, when you uncover the podium, you’re gonna feign surprise about it being missing.
+Tell the attendees that ‘Oh no, the art got stolen!’, and let them know we’re gonna need their help.
+And of course, you better not slip to anyone. We’re gonna be in major trouble if word gets out that our security failed.
+
+[thinking=true]
+The room feels eerily silent.
+
+[character=davian]
+Now, we got a con to run. Don’t let this fuck it up for everyone.
+Understood?
+
+[question]
+[0] Yes, sir!
+[1] YESSIR!
+[2] *Nod*
+
+[if0]
+[thinking=true]
+He looks at his staff, confident.
+
+[if1]
+[character=davian]
+C’MON, LET’S DO THIS YA’LL!
+
+[if2]
+[thinking=true]
+He nods at the crowd, but I can tell he’s worried.
+
+[end_question]
+
+[character=davian]
+Alright, let’s get moving!
+
+[thinking=true]
+The crowd disperses, but before I can leave, Davian stops me.
+
+[character=davian]
+Hold on, I need to talk to you.”
+
+[thinking=true]
+Oh fuck…
+
+[character=davian]
+You were there with Alice when you lifted the cover, weren’t you?
+
+[question]
+[0] Yes, sir.
+[1] It wasn’t me, I swear!
+[2] I didn’t lift the cover….
+
+[if0]
+[character=davian]
+I see.
+
+[if1]
+[character=davian]
+Don’t worry, you’re not in trouble. Yet.
+
+[if2]
+[character=davian]
+Oh I know, it’s a very Alice thing to do.
+
+[end_question]
+
+[thinking=true]
+He looks up at the cat, sighing.
+
+[character=davian]
+Gurl i’m so sorry, this shit never happens…
+
+[character=alice]
+Ya man, it sucks. But I’m sure we’ll find it.
+
+[thinking=true]
+Guess they’re familiar with each other.
+
+[character=davian]
+I’ll make sure of it.
+
+[thinking=true]
+He looks me up and down.
+
+[character=davian]
+You’re the dude Boris brought in to replace him, right?
+
+[thinking=true, speed=2.0]
+REPLACE HIM? HE DIDN’T WANT MY HELP????
+Whatever man, i just nod back.
+
+[character=davian]
+He hyped you up a lot, saying you had experience with dealing with problems in previous cons.
+
+[thinking=true]
+Of course he did. Gonna need to give him some words later.
+
+[character=davian]
+Well, he’s a trusted staff member, so i’ll have to believe him. Wait here.
+
+[thinking=true]
+Excusing himself, he gathers a few board members to discuss something.
+
+[character=alice]
+Man, what a mess. And for it to happen right at this year…
+
+[question]
+[0] Any guess as to what happened?
+[1] You suspect anyone?
+
+[if0]
+[character=alice]
+Well, i don’t want to believe, but i can’t think of much besides theft.
+The con folks are so careful with everything, they wouldn’t misplace it.
+
+[if1]
+[thinking=true]
+She looks distant, a little hesitant.
+[character=alice]
+Well, not from the staff, at least. If i had to guess, it was someone that knew someone on the inside.
+
+[end_question]
+
+[thinking=true]
+…
+(add some more stuff about her here)
+From the back, Davian arrives with a few staff members, some of them carrying fursuit parts.
+It’s the con’s mascot, Baggy the Badger. Pretty cute design, a tubby and cuddly badger.
+
+[character=davian]
+Alright, here’s the plan.
+
+[thinking=true]
+He points at me, talking to the staff.
+
+[character=davian]
+He’s Boris’ friend, the newbie. I know, i know, weird choice for this, but he’s the only one that is available and able to fit on the suit.
+
+[thinking=true]
+One of them steps closer, sizing me up.
+She takes out a measuring tape, wrapping it around my chest and limbs.
+
+[name=Staff Member]
+Yeah, he’s the right size. Still a crazy idea, i think.
+
+[character=davian]
+Without Boris to wear the suit, we’d lose an opportunity to gather information. It’ll corroborate with the treasure hunt too.
+
+
+[thinking=true]
+The board keeps squeezing their eyes at me, but eventually they cave in.
+
+[name=Staff Member]
+Good luck, newbie. You got big shoes - and a big badger - to fill.
+
+[thinking=true]
+Huh…
+
+[character=davian]
+Alright newbie, here’s your job: Wear Baggy here and go around the convention, talk to folks, then report to us anything you find. Shouldn’t be too hard, yeah?
+
+[question]
+[0] That’s a little far fetched
+[1] Yeah, i guess i can pull it off.
+[2] Sigh… Boris owes me a big one for this.
+
+[if0]
+[character=davian]
+I know man, but do this for us, yeah?
+
+[if1]
+[character=davian]
+You’ll do just fine, i believe!
+
+[if2]
+[character=davian]
+You, me, and to like half the folks here.
+
+[end_question]
+
+[thinking=true]
+The people around don’t seem very convinced. Alice hasn’t said a word so far, but she also hasn’t said anything against the idea.
+
+[character=davian]
+Good, let’s get you suited up.
+
+[thinking=true]
+They take me to a dress room in the side. I change into some lighter clothes, and piece by piece i get into the Baggy suit.
+Looking at a mirror, it fits quite nicely. The design translates well into a suit, and as they put his mask over my head, it looks just like the photos i’ve been shown of previous editions of the con.
+
+[name=Staff Member]
+Not bad! Let’s put the trench coat on.
+
+[thinking=true]
+They dress a classic detective suit over Baggy, and he looks quite dapper. Maybe i can pull this off, after all.
+
+[character=davian]
+And now, your hat, mr detective.
+
+[thinking=true]
+He puts a fedora hat on top of Baggy’s head.
+And it feels.
+Fitting.
+…….
+
+[scenario=black, time=2.0]
+*Fade to black*
+
+[act2]
+[comment=true]
+*A textbox appear, very art deco, with the text now in a different font*
+
+[thinking=true]
+November 14th, 2026. 7:30 AM.

@@ -1,20 +1,5 @@
-extends Node
 
-class_name GameplayController
-
-@onready var vn_controller: VNController = $VNController
-@export var placeholder_background_investigation_location: String = "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
-var clicked: ClickableRoot = null
-
-func _init() -> void:
-	Engine.register_singleton(&"GameplayController", self)
-
-
-func _ready() -> void:
-	await _act_1()
-	await _act_2()
-
-func _act_1():
+func _act_1() -> void:
 	await vn_controller.set_location(black, 0.0)
 	await vn_controller.show_texts(["The opening day.", "Such a chaotic day for the staff.", "But it’s worth it."], {})
 	await vn_controller.set_location(venue, 1.0)
@@ -58,7 +43,7 @@ func _act_1():
 	await vn_controller.show_texts(["We’ll play it up as a treasure hunt. Everyone at the stage, when you uncover the podium, you’re gonna feign surprise about it being missing.", "Tell the attendees that ‘Oh no, the art got stolen!’, and let them know we’re gonna need their help.", "And of course, you better not slip to anyone. We’re gonna be in major trouble if word gets out that our security failed."], {character=davian})
 	await vn_controller.show_texts(["The room feels eerily silent."], {thinking=true})
 	await vn_controller.show_texts(["Now, we got a con to run. Don’t let this fuck it up for everyone.", "Understood?"], {character=davian})
-	result = await vn_controller.show_options([
+	var result = await vn_controller.show_options([
 		"Yes, sir!",
 		"YESSIR!",
 		"*Nod*",
@@ -147,6 +132,6 @@ func _act_1():
 	await vn_controller.set_location(black, 2.0)
 	await vn_controller.show_texts(["*Fade to black*"], {})
 
-func _act_2():
+func _act_2() -> void:
 	await vn_controller.show_texts(["*A textbox appear, very art deco, with the text now in a different font*"], {comment=true})
 	await vn_controller.show_texts(["November 14th, 2026. 7:30 AM."], {thinking=true})
