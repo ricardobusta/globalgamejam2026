@@ -8,7 +8,6 @@ CHOICE_RE = re.compile(r"\[(\d+)\]\s*(.*)")
 IF_RE = re.compile(r"\[if(\d+)\]")
 END_QUESTION_RE = re.compile(r"\[end_question\]")
 
-already_declared = False
 
 def parse_options(option_string):
     if option_string.strip() == "":
@@ -31,8 +30,10 @@ def parse_options(option_string):
 
     return opts
 
+
 def options_to_gd(opts):
     return "{" + ", ".join(f"{k}={v}" for k, v in opts.items()) + "}"
+
 
 def convert(input_path, output_path):
     lines = Path(input_path).read_text(encoding="utf-8").splitlines()
@@ -48,30 +49,24 @@ def convert(input_path, output_path):
     branches = {}
     current_if = None
 
-    def flush_text():
+    result_declared = False
+
+    def flush_text(target=None):
         nonlocal text_buffer, current_opts
         if not text_buffer:
             return
 
         quoted = [f"\"{t}\"" for t in text_buffer]
         opts = options_to_gd(current_opts or {})
-        out.append(
-            indent + f'await vn_controller.show_texts([{", ".join(quoted)}], {opts})'
-        )
+        line = f'await vn_controller.show_texts([{", ".join(quoted)}], {opts})'
+
+        if target is not None:
+            target.append(line)
+        else:
+            out.append(indent + line)
 
         text_buffer = []
         current_opts = None
-
-    def flush_branch_text(branch):
-        if not branch["text"]:
-            return
-
-        quoted = [f"\"{t}\"" for t in branch["text"]]
-        opts = options_to_gd(branch["opts"] or {})
-        branch["code"].append(
-            f'await vn_controller.show_texts([{", ".join(quoted)}], {opts})'
-        )
-        branch["text"] = []
 
     for raw in lines:
         line = raw.strip()
@@ -81,7 +76,7 @@ def convert(input_path, output_path):
         m = ACT_RE.match(line)
         if m:
             flush_text()
-            out.append(f"\nfunc _act_{m.group(1)}() -> void:")
+            out.append(f"\nfunc _act_{m.group(1)}():")
             continue
 
         if QUESTION_RE.match(line):
@@ -100,30 +95,22 @@ def convert(input_path, output_path):
         m = IF_RE.match(line)
         if m:
             current_if = int(m.group(1))
-            branches[current_if] = {
-                "text": [],
-                "opts": None,
-                "code": []
-            }
+            branches[current_if] = []
             continue
 
         if END_QUESTION_RE.match(line):
-            nonlocal already_declared
-            for branch in branches.values():
-                flush_branch_text(branch)
+            assign = "var result =" if not result_declared else "result ="
+            result_declared = True
 
-            maybe_result = "" if already_declared else "var "
-            already_declared = True
-
-            out.append(indent + maybe_result + "result = await vn_controller.show_options([")
+            out.append(indent + f"{assign} await vn_controller.show_options([")
             for c in choices:
                 out.append(indent * 2 + f"\"{c}\",")
             out.append(indent + "])\n")
 
             out.append(indent + "match result:")
-            for idx, branch in branches.items():
+            for idx, code in branches.items():
                 out.append(indent * 2 + f"{idx}:")
-                out.extend(indent * 3 + l for l in branch["code"])
+                out.extend(indent * 3 + l for l in code)
 
             in_question = False
             current_if = None
@@ -131,32 +118,28 @@ def convert(input_path, output_path):
 
         m = OPTIONS_RE.match(line)
         if m:
+            flush_text()
             content = m.group(1)
             opts = parse_options(content)
 
-            if in_question and current_if is not None:
-                branch = branches[current_if]
-                flush_branch_text(branch)
-                branch["opts"] = opts
+            if "scenario" in opts:
+                scenario = opts["scenario"]
+                time = opts.get("time", "0.0")
+                out.append(indent + f"await vn_controller.set_location({scenario}, {time})")
             else:
-                flush_text()
-                if "scenario" in opts:
-                    scenario = opts["scenario"]
-                    time = opts.get("time", "0.0")
-                    out.append(
-                        indent + f"await vn_controller.set_location({scenario}, {time})"
-                    )
-                else:
-                    current_opts = opts
+                current_opts = opts
             continue
 
         if in_question and current_if is not None:
-            branches[current_if]["text"].append(line)
+            branches[current_if].append(
+                f'await vn_controller.show_texts(["{line}"], {{}})'
+            )
         else:
             text_buffer.append(line)
 
     flush_text()
     Path(output_path).write_text("\n".join(out), encoding="utf-8")
+
 
 if __name__ == "__main__":
     convert("input.txt", "output.txt")

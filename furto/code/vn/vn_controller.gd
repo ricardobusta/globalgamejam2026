@@ -179,6 +179,8 @@ func show_options(options: Array[String]) -> int:
 	
 	return option_selected_index
 
+func fade_screen(time: float) -> void:
+	pass
 
 func _on_options_button_pressed(index: int) -> void:
 	option_selected_index = index

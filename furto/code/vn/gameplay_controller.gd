@@ -76,7 +76,7 @@ func _act_1():
 	await vn_controller.show_texts(["Hold on, I need to talk to you.”"], {character=davian})
 	await vn_controller.show_texts(["Oh fuck…"], {thinking=true})
 	await vn_controller.show_texts(["You were there with Alice when you lifted the cover, weren’t you?"], {character=davian})
-	var result = await vn_controller.show_options([
+	result = await vn_controller.show_options([
 		"Yes, sir.",
 		"It wasn’t me, I swear!",
 		"I didn’t lift the cover….",

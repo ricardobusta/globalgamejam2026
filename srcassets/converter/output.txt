@@ -1,5 +1,5 @@
 
-func _act_1() -> void:
+func _act_1():
 	await vn_controller.set_location(black, 0.0)
 	await vn_controller.show_texts(["The opening day.", "Such a chaotic day for the staff.", "But it’s worth it."], {})
 	await vn_controller.set_location(venue, 1.0)
@@ -20,11 +20,11 @@ func _act_1() -> void:
 
 	match result:
 		0:
-			await vn_controller.show_texts(["No problem at all, man!"], {character=alice})
+			await vn_controller.show_texts(["No problem at all, man!"], {})
 		1:
-			await vn_controller.show_texts(["Heh, knew it."], {character=alice})
+			await vn_controller.show_texts(["Heh, knew it."], {})
 		2:
-			await vn_controller.show_texts(["C’mon, it’s no big deal. It’ll be our little secret."], {character=alice})
+			await vn_controller.show_texts(["C’mon, it’s no big deal. It’ll be our little secret."], {})
 	await vn_controller.show_texts(["She reaches up to the podium, lifting the cover."], {thinking=true})
 	await vn_controller.set_location(empty_podium, 1.0)
 	await vn_controller.show_texts(["…", "What?"], {thinking=true})
@@ -43,7 +43,7 @@ func _act_1() -> void:
 	await vn_controller.show_texts(["We’ll play it up as a treasure hunt. Everyone at the stage, when you uncover the podium, you’re gonna feign surprise about it being missing.", "Tell the attendees that ‘Oh no, the art got stolen!’, and let them know we’re gonna need their help.", "And of course, you better not slip to anyone. We’re gonna be in major trouble if word gets out that our security failed."], {character=davian})
 	await vn_controller.show_texts(["The room feels eerily silent."], {thinking=true})
 	await vn_controller.show_texts(["Now, we got a con to run. Don’t let this fuck it up for everyone.", "Understood?"], {character=davian})
-	var result = await vn_controller.show_options([
+	result = await vn_controller.show_options([
 		"Yes, sir!",
 		"YESSIR!",
 		"*Nod*",
@@ -51,17 +51,17 @@ func _act_1() -> void:
 
 	match result:
 		0:
-			await vn_controller.show_texts(["He looks at his staff, confident."], {thinking=true})
+			await vn_controller.show_texts(["He looks at his staff, confident."], {})
 		1:
-			await vn_controller.show_texts(["C’MON, LET’S DO THIS YA’LL!"], {character=davian})
+			await vn_controller.show_texts(["C’MON, LET’S DO THIS YA’LL!"], {})
 		2:
-			await vn_controller.show_texts(["He nods at the crowd, but I can tell he’s worried."], {thinking=true})
+			await vn_controller.show_texts(["He nods at the crowd, but I can tell he’s worried."], {})
 	await vn_controller.show_texts(["Alright, let’s get moving!"], {character=davian})
 	await vn_controller.show_texts(["The crowd disperses, but before I can leave, Davian stops me."], {thinking=true})
 	await vn_controller.show_texts(["Hold on, I need to talk to you.”"], {character=davian})
 	await vn_controller.show_texts(["Oh fuck…"], {thinking=true})
 	await vn_controller.show_texts(["You were there with Alice when you lifted the cover, weren’t you?"], {character=davian})
-	var result = await vn_controller.show_options([
+	result = await vn_controller.show_options([
 		"Yes, sir.",
 		"It wasn’t me, I swear!",
 		"I didn’t lift the cover….",
@@ -69,11 +69,11 @@ func _act_1() -> void:
 
 	match result:
 		0:
-			await vn_controller.show_texts(["I see."], {character=davian})
+			await vn_controller.show_texts(["I see."], {})
 		1:
-			await vn_controller.show_texts(["Don’t worry, you’re not in trouble. Yet."], {character=davian})
+			await vn_controller.show_texts(["Don’t worry, you’re not in trouble. Yet."], {})
 		2:
-			await vn_controller.show_texts(["Oh I know, it’s a very Alice thing to do."], {character=davian})
+			await vn_controller.show_texts(["Oh I know, it’s a very Alice thing to do."], {})
 	await vn_controller.show_texts(["He looks up at the cat, sighing."], {thinking=true})
 	await vn_controller.show_texts(["Gurl i’m so sorry, this shit never happens…"], {character=davian})
 	await vn_controller.show_texts(["Ya man, it sucks. But I’m sure we’ll find it."], {character=alice})
@@ -87,17 +87,18 @@ func _act_1() -> void:
 	await vn_controller.show_texts(["Well, he’s a trusted staff member, so i’ll have to believe him. Wait here."], {character=davian})
 	await vn_controller.show_texts(["Excusing himself, he gathers a few board members to discuss something."], {thinking=true})
 	await vn_controller.show_texts(["Man, what a mess. And for it to happen right at this year…"], {character=alice})
-	var result = await vn_controller.show_options([
+	result = await vn_controller.show_options([
 		"Any guess as to what happened?",
 		"You suspect anyone?",
 	])
 
 	match result:
 		0:
-			await vn_controller.show_texts(["Well, i don’t want to believe, but i can’t think of much besides theft.", "The con folks are so careful with everything, they wouldn’t misplace it."], {character=alice})
+			await vn_controller.show_texts(["Well, i don’t want to believe, but i can’t think of much besides theft."], {})
+			await vn_controller.show_texts(["The con folks are so careful with everything, they wouldn’t misplace it."], {})
 		1:
-			await vn_controller.show_texts(["She looks distant, a little hesitant."], {thinking=true})
-			await vn_controller.show_texts(["Well, not from the staff, at least. If i had to guess, it was someone that knew someone on the inside."], {character=alice})
+			await vn_controller.show_texts(["She looks distant, a little hesitant."], {})
+			await vn_controller.show_texts(["Well, not from the staff, at least. If i had to guess, it was someone that knew someone on the inside."], {})
 	await vn_controller.show_texts(["…", "(add some more stuff about her here)", "From the back, Davian arrives with a few staff members, some of them carrying fursuit parts.", "It’s the con’s mascot, Baggy the Badger. Pretty cute design, a tubby and cuddly badger."], {thinking=true})
 	await vn_controller.show_texts(["Alright, here’s the plan."], {character=davian})
 	await vn_controller.show_texts(["He points at me, talking to the staff."], {thinking=true})
@@ -109,7 +110,7 @@ func _act_1() -> void:
 	await vn_controller.show_texts(["Good luck, newbie. You got big shoes - and a big badger - to fill."], {name="Staff Member"})
 	await vn_controller.show_texts(["Huh…"], {thinking=true})
 	await vn_controller.show_texts(["Alright newbie, here’s your job: Wear Baggy here and go around the convention, talk to folks, then report to us anything you find. Shouldn’t be too hard, yeah?"], {character=davian})
-	var result = await vn_controller.show_options([
+	result = await vn_controller.show_options([
 		"That’s a little far fetched",
 		"Yeah, i guess i can pull it off.",
 		"Sigh… Boris owes me a big one for this.",
@@ -117,11 +118,11 @@ func _act_1() -> void:
 
 	match result:
 		0:
-			await vn_controller.show_texts(["I know man, but do this for us, yeah?"], {character=davian})
+			await vn_controller.show_texts(["I know man, but do this for us, yeah?"], {})
 		1:
-			await vn_controller.show_texts(["You’ll do just fine, i believe!"], {character=davian})
+			await vn_controller.show_texts(["You’ll do just fine, i believe!"], {})
 		2:
-			await vn_controller.show_texts(["You, me, and to like half the folks here."], {character=davian})
+			await vn_controller.show_texts(["You, me, and to like half the folks here."], {})
 	await vn_controller.show_texts(["The people around don’t seem very convinced. Alice hasn’t said a word so far, but she also hasn’t said anything against the idea."], {thinking=true})
 	await vn_controller.show_texts(["Good, let’s get you suited up."], {character=davian})
 	await vn_controller.show_texts(["They take me to a dress room in the side. I change into some lighter clothes, and piece by piece i get into the Baggy suit.", "Looking at a mirror, it fits quite nicely. The design translates well into a suit, and as they put his mask over my head, it looks just like the photos i’ve been shown of previous editions of the con."], {thinking=true})
@@ -132,6 +133,6 @@ func _act_1() -> void:
 	await vn_controller.set_location(black, 2.0)
 	await vn_controller.show_texts(["*Fade to black*"], {})
 
-func _act_2() -> void:
+func _act_2():
 	await vn_controller.show_texts(["*A textbox appear, very art deco, with the text now in a different font*"], {comment=true})
 	await vn_controller.show_texts(["November 14th, 2026. 7:30 AM."], {thinking=true})
