@@ -88,14 +88,14 @@ func show_texts(texts: Array[String], options: Dictionary = {}) -> void:
 	
 	if name_override.is_empty():
 		if character != null:
-			vn_root.vn_name_panel.visible = true
-			vn_root.vn_name_panel.position.x = character.get_on_position() - vn_root.vn_name_panel.size.x/2.0
+			vn_root.vn_name_label.visible = true
+			vn_root.vn_name_label.position.x = character.get_on_position() - vn_root.vn_name_label.size.x/2.0
 			vn_root.vn_name_label.text = character.char_name
 		else:
-			vn_root.vn_name_panel.visible = false
+			vn_root.vn_name_label.visible = false
 	else:
-		vn_root.vn_name_panel.visible = true
-		vn_root.vn_name_panel.position.x = 1920/2.0 - vn_root.vn_name_panel.size.x/2.0
+		vn_root.vn_name_label.visible = true
+		vn_root.vn_name_label.position.x = 1920/2.0 - vn_root.vn_name_label.size.x/2.0
 		vn_root.vn_name_label.text = name_override
 	
 	var tween := create_tween()

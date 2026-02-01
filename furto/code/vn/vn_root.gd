@@ -16,5 +16,4 @@ func init() -> void:
 	vn_fade_panel = $Root/FadePanel
 	vn_options_layout = $Root/OptionsLayout
 	vn_options_template_button  = $Root/OptionsLayout/OptionTemplateButton
-	vn_name_panel = $Root/TextPanel/NamePanel
-	vn_name_label = $Root/TextPanel/NamePanel/NameLabel
+	vn_name_label = $Root/TextPanel/NameLabel

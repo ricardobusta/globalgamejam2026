@@ -15,6 +15,15 @@ func _ready() -> void:
 	await _act_2()
 
 func _act_1():
+	# characters
+	var alice := vn_controller.load_character("res://assets/characters/alice/alice.tscn")
+	var davian := vn_controller.load_character("res://assets/characters/davian/davian.tscn")
+	# locations
+	var backstage := "res://assets/locations/backstage/backstage.tscn"
+	var black := "res://assets/locations/black/black.tscn"
+	var empty_podium := "res://assets/locations/empty_podium/empty_podium.tscn"
+	var reveal := "res://assets/locations/reveal/reveal.tscn"
+	var venue := "res://assets/locations/venue/venue.tscn"
 	await vn_controller.set_location(black, 0.0)
 	await vn_controller.show_texts(["The opening day.", "Such a chaotic day for the staff.", "But it’s worth it."], {})
 	await vn_controller.set_location(venue, 1.0)
@@ -35,11 +44,11 @@ func _act_1():
 
 	match result:
 		0:
-			await vn_controller.show_texts(["No problem at all, man!"], {character=alice})
+			await vn_controller.show_texts(["No problem at all, man!"], {})
 		1:
-			await vn_controller.show_texts(["Heh, knew it."], {character=alice})
+			await vn_controller.show_texts(["Heh, knew it."], {})
 		2:
-			await vn_controller.show_texts(["C’mon, it’s no big deal. It’ll be our little secret."], {character=alice})
+			await vn_controller.show_texts(["C’mon, it’s no big deal. It’ll be our little secret."], {})
 	await vn_controller.show_texts(["She reaches up to the podium, lifting the cover."], {thinking=true})
 	await vn_controller.set_location(empty_podium, 1.0)
 	await vn_controller.show_texts(["…", "What?"], {thinking=true})
@@ -66,11 +75,11 @@ func _act_1():
 
 	match result:
 		0:
-			await vn_controller.show_texts(["He looks at his staff, confident."], {thinking=true})
+			await vn_controller.show_texts(["He looks at his staff, confident."], {})
 		1:
-			await vn_controller.show_texts(["C’MON, LET’S DO THIS YA’LL!"], {character=davian})
+			await vn_controller.show_texts(["C’MON, LET’S DO THIS YA’LL!"], {})
 		2:
-			await vn_controller.show_texts(["He nods at the crowd, but I can tell he’s worried."], {thinking=true})
+			await vn_controller.show_texts(["He nods at the crowd, but I can tell he’s worried."], {})
 	await vn_controller.show_texts(["Alright, let’s get moving!"], {character=davian})
 	await vn_controller.show_texts(["The crowd disperses, but before I can leave, Davian stops me."], {thinking=true})
 	await vn_controller.show_texts(["Hold on, I need to talk to you.”"], {character=davian})
@@ -84,11 +93,11 @@ func _act_1():
 
 	match result:
 		0:
-			await vn_controller.show_texts(["I see."], {character=davian})
+			await vn_controller.show_texts(["I see."], {})
 		1:
-			await vn_controller.show_texts(["Don’t worry, you’re not in trouble. Yet."], {character=davian})
+			await vn_controller.show_texts(["Don’t worry, you’re not in trouble. Yet."], {})
 		2:
-			await vn_controller.show_texts(["Oh I know, it’s a very Alice thing to do."], {character=davian})
+			await vn_controller.show_texts(["Oh I know, it’s a very Alice thing to do."], {})
 	await vn_controller.show_texts(["He looks up at the cat, sighing."], {thinking=true})
 	await vn_controller.show_texts(["Gurl i’m so sorry, this shit never happens…"], {character=davian})
 	await vn_controller.show_texts(["Ya man, it sucks. But I’m sure we’ll find it."], {character=alice})
@@ -102,17 +111,18 @@ func _act_1():
 	await vn_controller.show_texts(["Well, he’s a trusted staff member, so i’ll have to believe him. Wait here."], {character=davian})
 	await vn_controller.show_texts(["Excusing himself, he gathers a few board members to discuss something."], {thinking=true})
 	await vn_controller.show_texts(["Man, what a mess. And for it to happen right at this year…"], {character=alice})
-	var result = await vn_controller.show_options([
+	result = await vn_controller.show_options([
 		"Any guess as to what happened?",
 		"You suspect anyone?",
 	])
 
 	match result:
 		0:
-			await vn_controller.show_texts(["Well, i don’t want to believe, but i can’t think of much besides theft.", "The con folks are so careful with everything, they wouldn’t misplace it."], {character=alice})
+			await vn_controller.show_texts(["Well, i don’t want to believe, but i can’t think of much besides theft."], {})
+			await vn_controller.show_texts(["The con folks are so careful with everything, they wouldn’t misplace it."], {})
 		1:
-			await vn_controller.show_texts(["She looks distant, a little hesitant."], {thinking=true})
-			await vn_controller.show_texts(["Well, not from the staff, at least. If i had to guess, it was someone that knew someone on the inside."], {character=alice})
+			await vn_controller.show_texts(["She looks distant, a little hesitant."], {})
+			await vn_controller.show_texts(["Well, not from the staff, at least. If i had to guess, it was someone that knew someone on the inside."], {})
 	await vn_controller.show_texts(["…", "(add some more stuff about her here)", "From the back, Davian arrives with a few staff members, some of them carrying fursuit parts.", "It’s the con’s mascot, Baggy the Badger. Pretty cute design, a tubby and cuddly badger."], {thinking=true})
 	await vn_controller.show_texts(["Alright, here’s the plan."], {character=davian})
 	await vn_controller.show_texts(["He points at me, talking to the staff."], {thinking=true})
@@ -124,7 +134,7 @@ func _act_1():
 	await vn_controller.show_texts(["Good luck, newbie. You got big shoes - and a big badger - to fill."], {name="Staff Member"})
 	await vn_controller.show_texts(["Huh…"], {thinking=true})
 	await vn_controller.show_texts(["Alright newbie, here’s your job: Wear Baggy here and go around the convention, talk to folks, then report to us anything you find. Shouldn’t be too hard, yeah?"], {character=davian})
-	var result = await vn_controller.show_options([
+	result = await vn_controller.show_options([
 		"That’s a little far fetched",
 		"Yeah, i guess i can pull it off.",
 		"Sigh… Boris owes me a big one for this.",
@@ -132,11 +142,11 @@ func _act_1():
 
 	match result:
 		0:
-			await vn_controller.show_texts(["I know man, but do this for us, yeah?"], {character=davian})
+			await vn_controller.show_texts(["I know man, but do this for us, yeah?"], {})
 		1:
-			await vn_controller.show_texts(["You’ll do just fine, i believe!"], {character=davian})
+			await vn_controller.show_texts(["You’ll do just fine, i believe!"], {})
 		2:
-			await vn_controller.show_texts(["You, me, and to like half the folks here."], {character=davian})
+			await vn_controller.show_texts(["You, me, and to like half the folks here."], {})
 	await vn_controller.show_texts(["The people around don’t seem very convinced. Alice hasn’t said a word so far, but she also hasn’t said anything against the idea."], {thinking=true})
 	await vn_controller.show_texts(["Good, let’s get you suited up."], {character=davian})
 	await vn_controller.show_texts(["They take me to a dress room in the side. I change into some lighter clothes, and piece by piece i get into the Baggy suit.", "Looking at a mirror, it fits quite nicely. The design translates well into a suit, and as they put his mask over my head, it looks just like the photos i’ve been shown of previous editions of the con."], {thinking=true})
@@ -144,9 +154,27 @@ func _act_1():
 	await vn_controller.show_texts(["They dress a classic detective suit over Baggy, and he looks quite dapper. Maybe i can pull this off, after all."], {thinking=true})
 	await vn_controller.show_texts(["And now, your hat, mr detective."], {character=davian})
 	await vn_controller.show_texts(["He puts a fedora hat on top of Baggy’s head.", "And it feels.", "Fitting.", "……."], {thinking=true})
-	await vn_controller.set_location(black, 2.0)
-	await vn_controller.show_texts(["*Fade to black*"], {})
+	await vn_controller.fade_screen(0.0, 2.0)
 
 func _act_2():
+	# characters
+	var baggy := vn_controller.load_character("res://assets/characters/baggy/baggy.tscn")
+	var noir_davian := vn_controller.load_character("res://assets/characters/noir_davian/noir_davian.tscn")
+	# locations
+	var black := "res://assets/locations/black/black.tscn"
+	await vn_controller.set_location(black, 0.0)
 	await vn_controller.show_texts(["*A textbox appear, very art deco, with the text now in a different font*"], {comment=true})
-	await vn_controller.show_texts(["November 14th, 2026. 7:30 AM."], {thinking=true})
+	await vn_controller.show_texts(["November 14th, 2026. 7:30 AM.", "What should have been a fun and wholesome evention for many critters, has devolved into another crime scene.", "A furtive theft, right under everyone’s snouts.", "The target? A valuable piece of art from a renowed artist, which was set to be auctioned tomorrow to benefit the orphans down the street.", "Whoever the lowlife was, i wonder if they knew the weight of their actions while swiping a simple piece of paper.", "No matter. They made a grave mistake."], {thinking=true})
+	await vn_controller.show_texts(["They made the grave mistake of choosing the day that private detective Baggy Baroncy happened to be in town."], {character=baggy})
+	await vn_controller.fade_screen(1.0, 2.0)
+	await vn_controller.show_texts(["*Slowly the background fades, in a noir style*"], {})
+	await vn_controller.show_texts(["As my make my entrance, it seems that the fine people are surprised to see my imposing figure.", "Can’t say i blame them."], {thinking=true})
+	await vn_controller.show_texts(["Private Detective Baggy, at your service!"], {character=baggy})
+	await vn_controller.show_texts(["I reach my hand to the fine crow gentleman that seemed to be in command of the situation.", "There’s some shock in his face, but still he grips my hand in a firm shake."], {thinking=true})
+	await vn_controller.show_texts(["...nice to meet you, mr Baggy."], {character=noir_davian})
+	await vn_controller.show_texts(["I’ve been called in to investigate a case of theft, is that right?"], {character=baggy})
+	await vn_controller.show_texts(["The crow looks to his sides, as if trying to find the proper words. Or perhaps, seeking something in his staff members."], {thinking=true})
+	await vn_controller.show_texts(["You, uh, surely got in character quick. I guess that works."], {character=noir_davian})
+	await vn_controller.show_texts(["There’s a pause in his speech."], {thinking=true})
+	await vn_controller.show_texts(["Yes, a valuable piece of art was stolen today, before being exposed to the public."], {character=noir_davian})
+	await vn_controller.show_texts(["WIP ---"], {})

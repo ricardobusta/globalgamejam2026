@@ -48,6 +48,29 @@ def convert(input_path, output_path):
 
 	result_declared = False
 
+	act_characters = set()
+	act_locations = set()
+	act_header_index = None
+
+	def emit_assets():
+		if act_header_index is None:
+			return
+
+		insert = []
+		if act_characters:
+			insert.append(indent + "# characters")
+			for c in sorted(act_characters):
+				path = f'res://assets/characters/{c}/{c}.tscn'
+				insert.append(indent + f'var {c} := vn_controller.load_character("{path}")')
+
+		if act_locations:
+			insert.append(indent + "# locations")
+			for l in sorted(act_locations):
+				path = f'res://assets/locations/{l}/{l}.tscn'
+				insert.append(indent + f'var {l} := "{path}"')
+
+		out[act_header_index + 1:act_header_index + 1] = insert
+
 	def flush_text(target=None):
 		nonlocal text_buffer, current_opts
 		if not text_buffer:
@@ -73,7 +96,13 @@ def convert(input_path, output_path):
 		m = ACT_RE.match(line)
 		if m:
 			flush_text()
+			emit_assets()
+
+			act_characters = set()
+			act_locations = set()
+
 			out.append(f"\nfunc _act_{m.group(1)}():")
+			act_header_index = len(out) - 1
 			continue
 
 		if QUESTION_RE.match(line):
@@ -119,16 +148,20 @@ def convert(input_path, output_path):
 			content = m.group(1)
 			opts = parse_options(content)
 
-			if "fade_in" in opts:
-				time = opts["fade_in"]
-				out.append(indent + f"await vn_controller.fade_screen(1.0, {time})")
-			elif "fade_out" in opts:
-				time = opts["fade_out"]
-				out.append(indent + f"await vn_controller.fade_screen(0.0, {time})")
-			elif "scenario" in opts:
-				scenario = opts["scenario"]
+			if "character" in opts:
+				act_characters.add(opts["character"])
+
+			if "scenario" in opts:
+				act_locations.add(opts["scenario"])
 				time = opts.get("time", "0.0")
-				out.append(indent + f"await vn_controller.set_location({scenario}, {time})")
+				out.append(indent + f"await vn_controller.set_location({opts['scenario']}, {time})")
+
+			elif "fade_in" in opts:
+				out.append(indent + f"await vn_controller.fade_screen(1.0, {opts['fade_in']})")
+
+			elif "fade_out" in opts:
+				out.append(indent + f"await vn_controller.fade_screen(0.0, {opts['fade_out']})")
+
 			else:
 				current_opts = opts
 			continue
@@ -141,6 +174,8 @@ def convert(input_path, output_path):
 			text_buffer.append(line)
 
 	flush_text()
+	emit_assets()
+
 	Path(output_path).write_text("\n".join(out), encoding="utf-8")
 
 if __name__ == "__main__":

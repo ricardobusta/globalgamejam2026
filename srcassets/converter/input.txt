@@ -316,8 +316,53 @@ Fitting.
 [fade_out=2.0]
 
 [act2]
+[scenario=black,time=0.0]
+
 [comment=true]
 *A textbox appear, very art deco, with the text now in a different font*
 
 [thinking=true]
 November 14th, 2026. 7:30 AM.
+What should have been a fun and wholesome evention for many critters, has devolved into another crime scene.
+A furtive theft, right under everyone’s snouts.
+The target? A valuable piece of art from a renowed artist, which was set to be auctioned tomorrow to benefit the orphans down the street.
+Whoever the lowlife was, i wonder if they knew the weight of their actions while swiping a simple piece of paper.
+No matter. They made a grave mistake.
+
+[character=baggy]
+They made the grave mistake of choosing the day that private detective Baggy Baroncy happened to be in town.
+
+[fade_in=2.0]
+*Slowly the background fades, in a noir style*
+
+[thinking=true]
+As my make my entrance, it seems that the fine people are surprised to see my imposing figure.
+Can’t say i blame them.
+
+[character=baggy]
+Private Detective Baggy, at your service!
+
+[thinking=true]
+I reach my hand to the fine crow gentleman that seemed to be in command of the situation.
+There’s some shock in his face, but still he grips my hand in a firm shake.
+
+[character=noir_davian]
+...nice to meet you, mr Baggy.
+
+[character=baggy]
+I’ve been called in to investigate a case of theft, is that right?
+
+[thinking=true]
+The crow looks to his sides, as if trying to find the proper words. Or perhaps, seeking something in his staff members.
+
+[character=noir_davian]
+You, uh, surely got in character quick. I guess that works.
+
+[thinking=true]
+There’s a pause in his speech.
+
+[character=noir_davian]
+Yes, a valuable piece of art was stolen today, before being exposed to the public.
+
+[]
+WIP ---
