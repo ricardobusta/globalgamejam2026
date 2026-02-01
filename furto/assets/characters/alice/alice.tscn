@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d17gjg6pk4fb2"]
+
+[ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_4enfn"]
+[ext_resource type="Texture2D" uid="uid://cthud8ekt6t3w" path="res://assets/characters/alice/alice.jpg" id="2_xmj3r"]
+
+[node name="FursuitMaker" type="Control" unique_id=321236823]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4enfn")
+char_name = "Alice"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=439839108]
+layout_mode = 0
+offset_left = 296.0
+offset_top = -919.0
+offset_right = 1074.919
+offset_bottom = 113.0
+scale = Vector2(-1, 1)
+texture = ExtResource("2_xmj3r")
+expand_mode = 3
+stretch_mode = 4

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d7jvol4yiupe"]
+
+[ext_resource type="Script" uid="uid://mbinehdpg87d" path="res://code/vn/character_root.gd" id="1_g4eow"]
+[ext_resource type="Texture2D" uid="uid://e4liwakcwc1i" path="res://assets/characters/davian/davian.jpg" id="2_xjxtb"]
+
+[node name="Davian" type="Control" unique_id=321236823]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g4eow")
+char_name = "Davian"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=439839108]
+layout_mode = 0
+offset_left = 364.0
+offset_top = -947.0
+offset_right = 1142.919
+offset_bottom = 85.0
+scale = Vector2(-1, 1)
+texture = ExtResource("2_xjxtb")
+expand_mode = 3
+stretch_mode = 4
+flip_h = true
