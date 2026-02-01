@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b2r3cvia164e7"]
 
 [ext_resource type="Script" uid="uid://cvg8q01an3jp6" path="res://code/app/title_scene_controller.gd" id="1_4ignj"]
-[ext_resource type="Texture2D" uid="uid://b6oprij5heup1" path="res://assets/characters/baggy/baggy.png" id="2_p6dhs"]
+[ext_resource type="Texture2D" uid="uid://bmtdkujd5068u" path="res://assets/characters/baggy/baggy.png" id="2_p6dhs"]
 [ext_resource type="FontFile" uid="uid://bsrjdp0fuupor" path="res://fonts/Limelight/Limelight-Regular.ttf" id="3_b3w7a"]
 [ext_resource type="Theme" uid="uid://bt6nn1uwx8s40" path="res://themes/main_menu_button.tres" id="3_pyl7j"]
 [ext_resource type="FontFile" uid="uid://l06r1wufdmqd" path="res://fonts/Inter/Inter_28pt-Black.ttf" id="4_b3w7a"]
