@@ -15,6 +15,10 @@ var location_node: LocationRoot
 var option_buttons: Array[Button] = []
 var option_selected_index: int
 
+func _init() -> void:
+	Engine.register_singleton(&"VNController", self)
+
+
 func _ready():
 	vn_root.init()
 	vn_root.vn_text_panel.visible = false

@@ -15,6 +15,11 @@ run/main_scene="uid://b2r3cvia164e7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[debug]
+
+settings/gdscript/always_track_call_stacks=true
+settings/gdscript/always_track_local_variables=true
+
 [display]
 
 window/size/viewport_width=1920
