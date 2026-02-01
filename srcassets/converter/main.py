@@ -40,6 +40,8 @@ def convert(input_path, output_path):
 
 	text_buffer = []
 	current_opts = None
+	question_opts = None
+	branch_opts = None
 
 	in_question = False
 	choices = []
@@ -60,24 +62,24 @@ def convert(input_path, output_path):
 		if act_characters:
 			insert.append(indent + "# characters")
 			for c in sorted(act_characters):
-				path = f'res://assets/characters/{c}/{c}.tscn'
+				path = f"res://assets/characters/{c}/{c}.tscn"
 				insert.append(indent + f'var {c} := vn_controller.load_character("{path}")')
 
 		if act_locations:
 			insert.append(indent + "# locations")
 			for l in sorted(act_locations):
-				path = f'res://assets/locations/{l}/{l}.tscn'
+				path = f"res://assets/locations/{l}/{l}.tscn"
 				insert.append(indent + f'var {l} := "{path}"')
 
 		out[act_header_index + 1:act_header_index + 1] = insert
 
-	def flush_text(target=None):
-		nonlocal text_buffer, current_opts
+	def flush_text(target=None, opts_override=None):
+		nonlocal text_buffer, current_opts, branch_opts
 		if not text_buffer:
 			return
 
 		quoted = [f"\"{t}\"" for t in text_buffer]
-		opts = options_to_gd(current_opts or {})
+		opts = options_to_gd(opts_override or current_opts or {})
 		line = f'await vn_controller.show_texts([{", ".join(quoted)}], {opts})'
 
 		if target is not None:
@@ -87,6 +89,7 @@ def convert(input_path, output_path):
 
 		text_buffer = []
 		current_opts = None
+		branch_opts = None
 
 	for raw in lines:
 		line = raw.strip()
@@ -111,6 +114,8 @@ def convert(input_path, output_path):
 			choices = []
 			branches = {}
 			current_if = None
+			question_opts = current_opts
+			current_opts = None
 			continue
 
 		m = CHOICE_RE.match(line)
@@ -128,10 +133,11 @@ def convert(input_path, output_path):
 			assign = "var result =" if not result_declared else "result ="
 			result_declared = True
 
+			opts = options_to_gd(question_opts or {})
 			out.append(indent + f"{assign} await vn_controller.show_options([")
 			for c in choices:
 				out.append(indent * 2 + f"\"{c}\",")
-			out.append(indent + "])\n")
+			out.append(indent + f"], {opts})\n")
 
 			out.append(indent + "match result:")
 			for idx, code in branches.items():
@@ -140,13 +146,19 @@ def convert(input_path, output_path):
 
 			in_question = False
 			current_if = None
+			question_opts = None
 			continue
 
 		m = OPTIONS_RE.match(line)
 		if m:
-			flush_text()
 			content = m.group(1)
 			opts = parse_options(content)
+
+			if in_question and current_if is not None:
+				branch_opts = opts
+				continue
+
+			flush_text()
 
 			if "character" in opts:
 				act_characters.add(opts["character"])
@@ -167,9 +179,8 @@ def convert(input_path, output_path):
 			continue
 
 		if in_question and current_if is not None:
-			branches[current_if].append(
-				f'await vn_controller.show_texts(["{line}"], {{}})'
-			)
+			text_buffer.append(line)
+			flush_text(branches[current_if], branch_opts)
 		else:
 			text_buffer.append(line)
 
