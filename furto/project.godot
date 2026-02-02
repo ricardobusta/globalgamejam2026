@@ -13,7 +13,7 @@ config_version=5
 config/name="FurTo"
 run/main_scene="uid://b2r3cvia164e7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://c37b2fkx70058"
+config/icon="uid://cfrpin4xurw06"
 
 [autoload]
 
