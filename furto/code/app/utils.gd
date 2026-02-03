@@ -1,8 +1,6 @@
 @tool
-
-extends Node
-
 class_name Utils
+extends Node
 
 static var cursor: Cursor = null:
 	get = get_cursor
@@ -25,8 +23,8 @@ static func get_cursor() -> Cursor:
 
 static func get_gameplay_controller() -> GameplayController:
 	if not is_instance_valid(gameplay_controller):
-		if Engine.get_singleton(&"GC"):
-			gameplay_controller = Engine.get_singleton(&"GC")
+		if Engine.get_singleton(&"G"):
+			gameplay_controller = Engine.get_singleton(&"G")
 		else:
 			gameplay_controller = GameplayController.new()
 	return gameplay_controller
@@ -44,8 +42,8 @@ static func get_inventory_controller() -> InventoryController:
 
 #static func get_vn_controller() -> VNController:
 	#if not is_instance_valid(vn_controller):
-		#if Engine.get_singleton(&"VNC"):
-			#vn_controller = Engine.get_singleton(&"VNC")
+		#if Engine.get_singleton(&"V"):
+			#vn_controller = Engine.get_singleton(&"V")
 		#else:
 			#vn_controller = VNController.new()
 	#return vn_controller

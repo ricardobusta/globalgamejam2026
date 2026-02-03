@@ -1,14 +1,10 @@
+class_name Cursor
 extends CanvasLayer
 
-class_name Cursor
-
-@export var is_pixel_perfect: bool = false
 @onready var cursor: AnimatedSprite2D = $Cursor
+@onready var vn_controller: VNController = get_tree().root.find_child("VNController", true, false)
+
 var is_blocked: bool = false
-
-
-func _init() -> void:
-	Engine.register_singleton(&"C", self)
 
 
 func _ready() -> void:
@@ -16,28 +12,20 @@ func _ready() -> void:
 	Utils.gameplay_controller.ready.connect(show_cursor)
 
 
-func _process(delta: float) -> void:
-	var texture_size: Vector2 = (cursor.sprite_frames.get_frame_texture(
-		cursor.animation,
-		cursor.frame
-	) as Texture2D).get_size()
-
+func _process(_delta: float) -> void:
 	var mouse_position: Vector2 = cursor.get_global_mouse_position()
 
-	if is_pixel_perfect:
-		cursor.position = Vector2i(mouse_position)
-	else:
-		cursor.position = mouse_position
+	cursor.position = mouse_position
 
 	if cursor.position.x < 1.0:
 		cursor.position.x = 1.0
-	elif cursor.position.x > Utils.gameplay_controller.width - 2.0:
-		cursor.position.x = Utils.gameplay_controller.width - 2.0
+	elif cursor.position.x > vn_controller.width - 2.0:
+		cursor.position.x = vn_controller.width - 2.0
 
 	if cursor.position.y < 1.0:
 		cursor.position.y = 1.0
-	elif cursor.position.y > Utils.gameplay_controller.height - 2.0:
-		cursor.position.y = Utils.gameplay_controller.height - 2.0
+	elif cursor.position.y > vn_controller.height - 2.0:
+		cursor.position.y = vn_controller.height - 2.0
 
 
 func show_cursor(anim_name: String = "default", ignore_block: bool = false) -> void:

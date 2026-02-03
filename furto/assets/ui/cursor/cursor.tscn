@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://bmlnfqt7repw2" path="res://assets/ui/cursor/cursor.gd" id="1_t1k4w"]
 [ext_resource type="SpriteFrames" uid="uid://3d0uwm618o2w" path="res://assets/ui/cursor/cursor_animations.tres" id="2_si7ii"]
 
-[node name="CursorLayer" type="CanvasLayer" unique_id=1027465265]
+[node name="CursorCanvas" type="CanvasLayer" unique_id=1359893916]
 layer = 100
 script = ExtResource("1_t1k4w")
 
-[node name="Cursor" type="AnimatedSprite2D" parent="." unique_id=318046139]
+[node name="Cursor" type="AnimatedSprite2D" parent="." unique_id=2098412408]
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = ExtResource("2_si7ii")
-frame = 16

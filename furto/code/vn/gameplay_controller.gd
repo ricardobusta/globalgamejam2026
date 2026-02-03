@@ -1,28 +1,19 @@
+class_name GameplayController
 extends Node
 
-class_name GameplayController
-
 @onready var vn_controller: VNController = $VNController
-@export var placeholder_background_investigation_location: String = "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
+#@export var placeholder_background_investigation_location: String = "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
 var clicked: ClickableRoot = null
-var width: float = 0.0 : get = get_width
-var height: float = 0.0 : get = get_height
 
 
 func _init() -> void:
-	Engine.register_singleton(&"GC", self)
+	Engine.register_singleton(&"G", self)
+
 
 func _ready() -> void:
 	await _act_1()
 	await _act_2()
-	await _act_3()
-
-func get_width() -> float:
-	return get_viewport().get_visible_rect().end.x
-
-
-func get_height() -> float:
-	return get_viewport().get_visible_rect().end.y
+	#await _act_3()
 
 
 func _act_1():
@@ -170,16 +161,16 @@ func _act_1():
 
 func _act_2():
 	# characters
+	var Baggy := vn_controller.load_character("res://assets/characters/Baggy/Baggy.tscn")
 	var baggy := vn_controller.load_character("res://assets/characters/baggy/baggy.tscn")
+	var noir_alice := vn_controller.load_character("res://assets/characters/noir_alice/noir_alice.tscn")
 	var noir_davian := vn_controller.load_character("res://assets/characters/noir_davian/noir_davian.tscn")
 	# locations
 	var black := "res://assets/locations/black/black.tscn"
 	await vn_controller.set_location(black, 0.0)
-	await vn_controller.show_texts(["*A textbox appear, very art deco, with the text now in a different font*"], {comment=true})
 	await vn_controller.show_texts(["November 14th, 2026. 7:30 AM.", "What should have been a fun and wholesome event for many critters, has devolved into another crime scene.", "A furtive theft, right under everyone’s snouts.", "The target? A valuable piece of art from a renowned artist, which was set to be auctioned tomorrow to benefit the orphans down the street.", "Whoever the lowlife was, i wonder if they knew the weight of their actions while swiping a simple piece of paper.", "No matter. They made a grave mistake."], {thinking=true})
 	await vn_controller.show_texts(["They made the grave mistake of choosing the day that private detective Baggy Baroncy happened to be in town."], {character=baggy})
-	await vn_controller.fade_screen(1.0, 2.0)
-	await vn_controller.show_texts(["*Slowly the background fades, in a noir style*"], {})
+	await vn_controller.fade_screen(0.0, 2.0)
 	await vn_controller.show_texts(["As I make my entrance, it seems that the fine people are surprised to see my imposing figure.", "Can’t say i blame them."], {thinking=true})
 	await vn_controller.show_texts(["Private Detective Baggy, at your service!"], {character=baggy})
 	await vn_controller.show_texts(["I reach my hand to the fine crow gentleman that seemed to be in command of the situation.", "There’s some shock in his face, but still he grips my hand in a firm shake."], {thinking=true})
@@ -189,10 +180,61 @@ func _act_2():
 	await vn_controller.show_texts(["You, uh, surely got in character quick. I guess that works."], {character=noir_davian})
 	await vn_controller.show_texts(["There’s a pause in his speech."], {thinking=true})
 	await vn_controller.show_texts(["Yes, a valuable piece of art was stolen today, before being exposed to the public."], {character=noir_davian})
-	await vn_controller.show_texts(["* go over all question before continuing *"], {comment=true})
+	var result = await vn_controller.show_options([
+		"Who had access to it?",
+		"Describe the artpiece.",
+		"When was it last seen?",
+	])
+
+	match result:
+		0:
+			await vn_controller.show_texts(["Tell me mr Avian, who had direct access to the stolen item?"], {character=baggy})
+			await vn_controller.show_texts(["Hmmm, i guess everyone from the staff. It didn’t require any special security, really, we never had an incident like this."], {character=noir_davian})
+			await vn_controller.show_texts(["Everyone, huh? Quite a large number of suspects."], {thinking=true})
+			await vn_controller.show_texts(["It seems I have my work cut out for me."], {})
+		1:
+			await vn_controller.show_texts(["Could you describe the artpiece? In detail, if possible."], {character=baggy})
+			await vn_controller.show_texts(["It’s a traditional canvas painting, 16 by 20 inches, made by Alice Meowlice."], {character=noir_davian})
+			await vn_controller.show_texts(["It features a horned white feline creature sitting below a tree, overlooking the stormy seas."], {})
+			await vn_controller.show_texts(["Many observers note that the creature’s deep and distant gaze evoke feelings of introspection, embracing moments of peace before returning to life’s tempests."], {})
+			await vn_controller.show_texts(["By that description, it looks like it could be sold for a hefty price."], {thinking=true})
+		2:
+			await vn_controller.show_texts(["When was the item last seen by anyone in the team?"], {character=baggy})
+			await vn_controller.show_texts(["From what I've been told, it was just after the team arrived today. They checked the podium before moving it to where it sits now, and the canvas was still there."], {character=noir_davian})
+			await vn_controller.show_texts(["Moved? Where was it before?"], {character=baggy})
+			await vn_controller.show_texts(["Yes, it was in the storage room until last night."], {character=noir_davian})
+			await vn_controller.show_texts(["Interesting. I'll have to check that out."], {thinking=true})
+	await vn_controller.show_texts(["That's enough for me to start investigating."], {thinking=true})
+	await vn_controller.show_texts(["Very well, Mr Avian, I’ll start taking a look around."], {character=baggy})
+	await vn_controller.show_texts(["He nods, beckoning me to follow.", "As we leave the site, I notice the curious stares folks throw at me.", "I'm used to not being welcomed, but this feels more like I'm stranded in a different epoch.", "What a queer bunch."], {thinking=true})
+	await vn_controller.show_texts(["The crow leads me to a dim-lit deposit room.", "Boxes are spread through the floor and piling up to the ceiling, colorful banners drape from the walls in an erratic manner."], {thinking=true})
+	await vn_controller.show_texts(["Here we are."], {character=noir_davian})
+	await vn_controller.show_texts(["He shows me a spot in the ground where the dust gives space for a square shape."], {thinking=true})
+	await vn_controller.show_texts(["The guys came in the morning to carry the podium, must've been around 6 AM.", "I can't tell exactly who was tasked with carrying it, we just grabbed everyone that wasn't busy."], {character=noir_davian})
+	await vn_controller.show_texts(["He seems very cautelous in not giving specifics.", "I am not sure if he's being too honest, or too trusting to point fingers at his own staff.", "Looking around, there’s still plenty of products waiting to be handled."], {thinking=true})
+	await vn_controller.show_texts(["Mind if I take a look around?"], {character=baggy})
+	await vn_controller.show_texts(["Of course, see if you can find anything."], {character=noir_davian})
+	await vn_controller.show_texts(["I take my leave, squeezing around the cramped shelves.", "It is not easy to move around. Furniture has been pushed aside to make way for more boxes.", "A few painted boards with cartoon drawings stand in the way. Turning one aside, it reveals a badger gentleman, wearing a trench coat.", "If not for the situation, I might as well believe it was a mirror!", "Just behind it, I see something peculiar hanging from a shelf."], {thinking=true})
+	await vn_controller.show_texts(["A patch of indigo and pink fur seems to have been ripped from someone.", "Inspecting the shelf, it is broken in the corner, forming a sharp edge.", "It might be nothing, but I'll hang onto it anyway."], {thinking=true})
+	await vn_controller.show_texts(["Besides that, I don't see much out of the ordinary.", "I return to the crow, who is speaking with some folks."], {thinking=true})
+	await vn_controller.show_texts(["Mr Avian, I'm afraid I haven't gathered much.", "I did find this, however. Does it mean anything to you?", "He takes the patch of fur into his hands, facing it to the light."], {character=Baggy})
+	await vn_controller.show_texts(["Hmmm, outside of it being from a fursuit, not much."], {character=noir_davian})
+	await vn_controller.show_texts(["A wolf from the folks gathered around steps to see it closer."], {thinking=true})
+	await vn_controller.show_texts(["Hey, i know that!"], {name="Wolf"})
+	await vn_controller.show_texts(["He takes it from the crow's hands.", "What I did not expect, however, was for him to sniff it."], {thinking=true})
+	await vn_controller.show_texts(["Yeah, totally! Smells like raspberries!", "This is from Beary, one of our friends."], {name="Wolf"})
+	await vn_controller.show_texts(["Beary? The hell was her suit doing here?"], {character=noir_davian})
+	await vn_controller.show_texts(["I dunno man, i know she came to town early but i don't remember her being at the venue.", "Actually, I haven't seen her online since yesterday."], {name="Wolf"})
+	await vn_controller.show_texts(["May I ask where this Beary is staying at?"], {character=Baggy})
+	await vn_controller.show_texts(["Yeah, she's staying here in the hotel.", "Room 2418, right?"], {character=noir_davian})
+	await vn_controller.show_texts(["The wolf nods."], {thinking=true})
+	await vn_controller.show_texts(["Very well, then. I'll go talk to her while you folks keep doing your thing here."], {character=Baggy})
+	await vn_controller.show_texts(["The crow nods his head, while the wolf seems a bit apprehensive.", "As I return to the backstage, the crew is in a hurry, no doubt exacerbated by the missing art piece.", "A sharply-dressed feline approaches as I enter the hall. Her eyes meet mine, and I sense familiarity in her gaze."], {thinking=true})
+	await vn_controller.show_texts(["Look at that! You look great in the Baggy suit, man!"], {character=noir_alice})
+	await vn_controller.show_texts(["She addresses me as if we were long time companions, in complete opposition to how every fur has treated me so far.", "It is heartwarming to see a welcoming face, but I wish I could reciprocate the familiarity."], {thinking=true})
 
 
-func _act_3():
-	# location
-	var investigation := "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
-	await vn_controller.set_location(investigation, 0.0)
+#func _act_3():
+	## location
+	#var investigation := "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
+	#await vn_controller.set_location(investigation, 0.0)

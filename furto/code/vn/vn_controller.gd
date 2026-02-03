@@ -1,6 +1,5 @@
-extends Node
-
 class_name VNController
+extends Node
 
 @onready var vn_root: VNRoot = $"../VNCanvas"
 @onready var location_canvas : CanvasLayer = $"../LocationCanvas"
@@ -15,9 +14,13 @@ var location_node: LocationRoot
 var option_buttons: Array[Button] = []
 var option_selected_index: int
 
+# Game native resolution in pixels
+var width: float = 0.0 : get = get_width
+var height: float = 0.0 : get = get_height
+
 
 #func _init() -> void:
-	#Engine.register_singleton(&"VNC", self)
+	#Engine.register_singleton(&"V", self)
 
 
 func _ready():
@@ -192,3 +195,11 @@ func fade_screen(alpha: float, time: float) -> void:
 
 func _on_options_button_pressed(index: int) -> void:
 	option_selected_index = index
+
+
+func get_width() -> float:
+	return get_viewport().get_visible_rect().end.x
+
+
+func get_height() -> float:
+	return get_viewport().get_visible_rect().end.y
