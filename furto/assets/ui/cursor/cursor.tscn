@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3ur10onq0i3r"]
 
-[ext_resource type="Script" uid="uid://bmlnfqt7repw2" path="res://assets/ui/cursor/cursor.gd" id="1_t1k4w"]
+[ext_resource type="Script" uid="uid://bmlnfqt7repw2" path="res://code/vn/cursor_root.gd" id="1_t1k4w"]
 [ext_resource type="SpriteFrames" uid="uid://3d0uwm618o2w" path="res://assets/ui/cursor/cursor_animations.tres" id="2_si7ii"]
 
 [node name="CursorCanvas" type="CanvasLayer" unique_id=1359893916]

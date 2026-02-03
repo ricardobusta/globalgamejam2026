@@ -17,7 +17,6 @@ config/icon="uid://cfrpin4xurw06"
 
 [autoload]
 
-C="*uid://b3ur10onq0i3r"
 G="*uid://br8qq2rug0eoh"
 
 [debug]

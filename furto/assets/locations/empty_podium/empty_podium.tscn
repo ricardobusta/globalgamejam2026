@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxqacy4wb6nsg"]
 
 [ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_lc6sv"]
-[ext_resource type="Texture2D" uid="uid://40qwlpohxeas" path="res://assets/locations/empty_podium/empty_podium.png" id="2_xpnmg"]
+[ext_resource type="Texture2D" uid="uid://b4xnlldy502f1" path="res://assets/locations/empty_podium/empty_podium.png" id="2_xpnmg"]
 
 [node name="EmptyPodium" type="Node" unique_id=2024429395]
 script = ExtResource("1_lc6sv")

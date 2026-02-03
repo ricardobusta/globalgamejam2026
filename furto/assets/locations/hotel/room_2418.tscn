@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b6yqpjepqoan6"]
+
+[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_x1gtq"]
+[ext_resource type="Texture2D" uid="uid://bhrwmp7jslthp" path="res://assets/locations/hotel/placeholder_background_investigation.webp" id="2_j756t"]
+[ext_resource type="Script" uid="uid://c7sjmxkbaotej" path="res://code/vn/clickable_controller.gd" id="3_bhbq5"]
+[ext_resource type="Texture2D" uid="uid://bp1gqvi42mpph" path="res://assets/locations/hotel/placeholder_background_investigation_cat.png" id="4_xlg6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hc0a"]
+
+[node name="Room2418" type="Node" unique_id=2024429395]
+script = ExtResource("1_x1gtq")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=200755685]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j756t")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Area2D" type="Area2D" parent="." unique_id=288862437]
+process_priority = 1
+physics_interpolation_mode = 1
+use_parent_material = true
+position = Vector2(900.00006, 822.00006)
+scale = Vector2(-20.545002, -14.668085)
+disable_mode = 1
+priority = 1
+script = ExtResource("3_bhbq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1000424717]
+scale = Vector2(1.3798921, 1.4322143)
+shape = SubResource("RectangleShape2D_1hc0a")
+debug_color = Color(0.03529412, 0.6, 0.7019608, 0.41960785)
+
+[node name="Cat" type="TextureRect" parent="Area2D" unique_id=624597944 node_paths=PackedStringArray("shortcut_context")]
+physics_interpolation_mode = 0
+offset_left = 12.411779
+offset_top = 12.8159485
+offset_right = 512.4118
+offset_bottom = 387.81595
+scale = Vector2(-0.052367862, -0.0656011)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_mode = 1
+shortcut_context = NodePath("..")
+texture = ExtResource("4_xlg6v")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

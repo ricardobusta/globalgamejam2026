@@ -3,7 +3,7 @@ extends Node
 
 @onready var vn_controller: VNController = $VNController
 #@export var placeholder_background_investigation_location: String = "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
-var clicked: ClickableRoot = null
+var clicked: ClickableController = null
 
 
 func _init() -> void:
@@ -232,9 +232,63 @@ func _act_2():
 	await vn_controller.show_texts(["The crow nods his head, while the wolf seems a bit apprehensive.", "As I return to the backstage, the crew is in a hurry, no doubt exacerbated by the missing art piece.", "A sharply-dressed feline approaches as I enter the hall. Her eyes meet mine, and I sense familiarity in her gaze."], {thinking=true})
 	await vn_controller.show_texts(["Look at that! You look great in the Baggy suit, man!"], {character=noir_alice})
 	await vn_controller.show_texts(["She addresses me as if we were long time companions, in complete opposition to how every fur has treated me so far.", "It is heartwarming to see a welcoming face, but I wish I could reciprocate the familiarity."], {thinking=true})
+	result = await vn_controller.show_options([
+		"Forgive me ma'am, it seems I have forgotten your name.",
+		"It's best if I introduce myself proper.",
+	])
+
+	match result:
+		0:
+			await vn_controller.show_texts(["Forgive me, ma'am. My work takes me to many places, and often times all the faces blur into one."], {character=Baggy})
+			await vn_controller.show_texts(["If we have met before, may I ask your name again?"], {})
+			await vn_controller.show_texts(["She stops for a second, staring at me, as if waiting for a follow up."], {thinking=true})
+			await vn_controller.show_texts(["I find it more appropriate to let her answer in her own time."], {})
+			await vn_controller.show_texts(["…I'm Alice…"], {character=noir_alice})
+		1:
+			await vn_controller.show_texts(["A pleasure to meet you again, miss Alice."], {character=Baggy})
+	await vn_controller.show_texts(["Anyway…", "Did you find anything in there?"], {character=noir_alice})
+	await vn_controller.show_texts(["About the investigation, yes? I heard it was your art piece that was stolen.", "See, I found some patch of fur at the place the painting was stored at.", "I have been told it matches with one called Beary."], {character=Baggy})
+	await vn_controller.show_texts(["Beary? I've seen her in the last few cons, she's always hanging out with the crew after the event ends."], {character=noir_alice})
+	await vn_controller.show_texts(["I see. She's a regular, then."], {thinking=true})
+	await vn_controller.show_texts(["That's good to know. I'm heading to her hotel room now, it seems she hasn't been heard of since yesterday."], {character=Baggy})
+	await vn_controller.show_texts(["I hope she's alright. Take care, uh, Mr Baggy…"], {character=noir_alice})
+	await vn_controller.show_texts(["I say my goodbye, and tip my fedora in respect.", "Her eyes tell me she didn't appreciate my respect."], {thinking=true})
+	await vn_controller.show_texts(["*change scenery to convention*", "I head to the elevators, and on the way I see a venue already filled with furs of the most diverse species.", "A few of them stop me and ask for a photograph.", "It's an unusual request for me, but I indulge them for a second.", "At the elevator hall, I call the lift and wait. A number lights up atop the doors, showing floor numbers in the dozens.", "To my side, I hear soft pawsteps from high heels on carpeted floors.", "I turn around to see a black panther. Her eyes stare deep into mine, confidence flowing from them and seeping into her firm gait.", "She approaches me without fear. I can tell from her pose that she hopes to instill that fear in me.", "Maybe it is working, even if just a tiny bit."], {comment=true})
+	var noir_emma := vn_controller.load_character("res://assets/characters/noir_emma/noir_emma.tscn")
+	await vn_controller.show_texts(["You're going to Beary's room, right?"], {character=noir_emma})
+	result = await vn_controller.show_options([
+		"That would be right, miss…?",
+		"Avoid the question,",
+	])
+
+	match result:
+		0:
+			await vn_controller.show_texts(["That would be right. I fear we haven't been presented yet, miss…?"], {character=Baggy})
+			await vn_controller.show_texts(["You know my name is Emma. You literally spoke to me this morning."], {character=noir_emma})
+			await vn_controller.show_texts(["Emma. I wonder why my memory is failing me today."], {thinking=true})
+			await vn_controller.show_texts(["Might be the discount whisky from the corner pub."], {})
+		1:
+			await vn_controller.show_texts(["Sorry ma'am, I'm simply heading to my room."], {character=Baggy})
+			await vn_controller.show_texts(["Don't play dumb, I heard you talking to that bitch in the backstage."], {character=noir_emma})
+			await vn_controller.show_texts(["And don't call me ma'am, that's creepy as fuck. I'm Emma."], {})
+			await vn_controller.show_texts(["Emma. Quite a crass feline, if i'm to say."], {thinking=true})
+	await vn_controller.show_texts(["Anyway, I'm coming with you. Gotta check on her."], {character=noir_emma})
+	await vn_controller.show_texts(["Very well, you may accompany me."], {character=Baggy})
+	await vn_controller.show_texts(["The doors open, and a few furs come out from inside the lift. When it empties, it is only me and the panther.", "I press the button for the 24th floor, and the doors close.", "The journey is silent.", "She stares at the door, unflinching.", "I don't attempt to start any conversation, either.", "We arrived on floor 24. Stepping out, she walks behind me, keeping a good distance.", "For a busy event, it is weird to see a hotel floor be this empty.", "We stand in front of room 2418, at the end of the hallway. Emma is right behind, leaning on the wall.", "I raise my hand, and my knuckles gently knock on the door. There's no answer.", "I knock again, a little harder. Still, no answer."], {thinking=true})
+	await vn_controller.show_texts(["Miss Beary? Are you in there?"], {character=Baggy})
+	await vn_controller.show_texts(["Only silence."], {thinking=true})
+	await vn_controller.show_texts(["Try the door handle."], {character=noir_emma})
+	await vn_controller.show_texts(["There's no way it is open."], {character=baggy})
+	await vn_controller.show_texts(["I grab the handle anyway, to show the foolishness of her suggestion.", "…", "It opens."], {thinking=true})
+	await vn_controller.show_texts(["See? Go right ahead."], {character=noir_emma})
+	await vn_controller.show_texts(["I groan, but I have to admit when I'm defeated.", "I step inside the room, with no one in sight.", "The bedsheets are unturned, and the luggage strewn across the floor tells me someone has been here, at least.", "Some personal belongings, however, makes me think she's still in the room. The bathroom, perhaps?"], {thinking=true})
+	await vn_controller.show_texts(["Miss Beary? Sorry to intrude, I…"], {character=Baggy})
+	await vn_controller.show_texts(["Behind me, I hear something being lifted from the floor."], {thinking=true})
+	await vn_controller.show_texts(["Miss Emma?", "Before I can properly turn around, something bashes against the side of my head.", "It sends me toppling to the ground, and my vision flares with the pain.", "Desperately, I try to grab something to help me up.", "Before I can, however, my head is bashed again.", "And the world goes dark.", "….", "To be Continued."], {character=Baggy})
+	await vn_controller.show_texts(["End of ACT 2."], {comment=true})
 
 
-#func _act_3():
-	## location
-	#var investigation := "res://assets/locations/placeholder_background_investigation/placeholder_background_investigation_location.tscn"
-	#await vn_controller.set_location(investigation, 0.0)
+func _act_3():
+	# location
+	var investigation := "res://assets/locations/hotel/hotel_2418_entrance.tscn"
+	await vn_controller.set_location(investigation, 0.0)

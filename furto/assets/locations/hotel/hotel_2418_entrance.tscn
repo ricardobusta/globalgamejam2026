@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dilwghjfkx55o"]
+
+[ext_resource type="Texture2D" uid="uid://h06larvnttcv" path="res://assets/locations/hotel/room_2418_entrance.webp" id="1_en4a7"]
+[ext_resource type="Script" uid="uid://j72ycdgiqhl2" path="res://code/vn/location_root.gd" id="1_osl47"]
+[ext_resource type="Script" uid="uid://c7sjmxkbaotej" path="res://code/vn/clickable_controller.gd" id="2_en4a7"]
+
+[node name="Hotel2418Entrance" type="Node2D" unique_id=1276334454]
+script = ExtResource("1_osl47")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=1208569267]
+offset_right = 800.0
+offset_bottom = 533.0
+scale = Vector2(2.3949811, 2.0282145)
+mouse_filter = 2
+texture = ExtResource("1_en4a7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2144928268]
+script = ExtResource("2_en4a7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1465288102]
+position = Vector2(1621, 537)
+scale = Vector2(-28.423756, -51.45577)
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0)
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

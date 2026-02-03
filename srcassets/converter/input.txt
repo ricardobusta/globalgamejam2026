@@ -1,589 +1,94 @@
-[act1]
-[scenario=black,time=0.0]
-
-[]
-The opening day.
-Such a chaotic day for the staff.
-But it’s worth it.
-
-[scenario=venue,time=1.0]
-
-[]
-This ain’t my first rodeo as a furry conference volunteer, but it’s my first one here.
-Wanted to help my friend Boris on the organizing team, ended up being dragged here at the same time he had to step out for family reasons. At least my room was covered.
-
-[scenario=backstage,time=1.0]
-
-[]
-In just a couple hours, the opening ceremony will take place on the stage. Hundreds of furries from many different places coming together to have a good weekend.
-That’s one of the reasons why I do this. You don’t get much recognition, but it’s nice seeing everyone smile and laugh, just like i did in my first few cons.
-In the meantime, gotta make sure everything is in order.
-I check in with some of our guests of honor. We got a good cast this year, gotta admit.
-Rocket Rangoon, WildPause…
-And two i don’t really know too much about.
-[color=red]Alice Meowlice[/color] and [color=red]Emma Panther[/color].
-Folks in the group chat told me to keep an eye on them, apparently they had some drama a good while ago and had fallen out.
-Used to be good friends, from what i’ve heard. Weird that they accepted to be here at the same time.
-They haven’t looked each other in the face ever since they arrived, and so far we’ve had no issues.
-Alice has even donated one of her original arts from back in the day, apparently it’s one of her more iconic works.
-The directors wanted to keep it a secret from the attendees and reveal it at the opening.
-
-[scenario=reveal,time=1.0]
-
-[thinking=true]
-They even made a special podium for it. Covered dome and all that.
-Not even staff has been shown it.
-
-[name=????]
-Wanna see what it looks like?
-
-[thinking=true]
-I turn to face the voice, now seeing Alice looking at the podium.
-
-[character=alice]
-Oh, don’t worry about it, i’ve seen everyone giving it a peek. Plus, i’ve been told that staff won’t be able to participate on the auction, so as long as you don’t tell…
-
-[question]
-[0] Uh, sure? If it is not a problem.
-[1] I’m actually pretty curious, lemme see!
-[2] I really don’t want to get in trouble…
-
-[if0]
-[character=alice]
-No problem at all, man!
-
-[if1]
-[character=alice]
-Heh, knew it.
-
-[if2]
-[character=alice]
-C’mon, it’s no big deal. It’ll be our little secret.
-
-[end_question]
-
-[thinking=true]
-She reaches up to the podium, lifting the cover.
-
-[scenario=empty_podium,time=1.0]
-
-[thinking=true]
-…
-What?
-
-[character=alice]
-Wait, where’s…?
-
-[]
-It’s empty?!
-
-[character=alice]
-Hey guys, the charity art was supposed to be here, right?
-
-[thinking=true]
-Folks start to turn around, and worry spreads through everyone’s faces.
-
-[name=Staff Member 1]
-The hell…?
-
-[name=Staff Member 2]
-Who took it?!
-
-[thinking=true]
-Soon, everyone is gathering around the empty podium, some asking if anyone saw anything, some covering their mouths and silently worrying.
-
-[name=????]
-Alright everyone, listen up!
-
-[thinking=true]
-From the middle of the small crowd, someone calls for attention and steps to the front.
-
-[character=davian, name=????]
-We got less than two hours to get things ready, so let’s improvise.
-Davian Avian, one of the convention’s founders, the only that remains on the board of directors.
-
-[character=davian]
-Now, this is a shitty thing to find out at the last minute, but let’s try to stay calm and not point fingers just yet.
-This is the Noir year, so let’s use that to our advantage.
-
-[thinking=true]
-He points to the empty podium.
-
-[character=davian]
-We’ll play it up as a treasure hunt. Everyone at the stage, when you uncover the podium, you’re gonna feign surprise about it being missing.
-Tell the attendees that ‘Oh no, the art got stolen!’, and let them know we’re gonna need their help.
-And of course, you better not slip to anyone. We’re gonna be in major trouble if word gets out that our security failed.
-
-[thinking=true]
-The room feels eerily silent.
-
-[character=davian]
-Now, we got a con to run. Don’t let this fuck it up for everyone.
-Understood?
-
-[question]
-[0] Yes, sir!
-[1] YESSIR!
-[2] *Nod*
-
-[if0]
-[thinking=true]
-He looks at his staff, confident.
-
-[if1]
-[character=davian]
-C’MON, LET’S DO THIS YA’LL!
-
-[if2]
-[thinking=true]
-He nods at the crowd, but I can tell he’s worried.
-
-[end_question]
-
-[character=davian]
-Alright, let’s get moving!
-
-[thinking=true]
-The crowd disperses, but before I can leave, Davian stops me.
-
-[character=davian]
-Hold on, I need to talk to you.”
-
-[thinking=true]
-Oh fuck…
-
-[character=davian]
-You were there with Alice when you lifted the cover, weren’t you?
-
-[question]
-[0] Yes, sir.
-[1] It wasn’t me, I swear!
-[2] I didn’t lift the cover….
-
-[if0]
-[character=davian]
-I see.
-
-[if1]
-[character=davian]
-Don’t worry, you’re not in trouble. Yet.
-
-[if2]
-[character=davian]
-Oh I know, it’s a very Alice thing to do.
-
-[end_question]
-
-[thinking=true]
-He looks up at the cat, sighing.
-
-[character=davian]
-Gurl i’m so sorry, this shit never happens…
-
-[character=alice]
-Ya man, it sucks. But I’m sure we’ll find it.
-
-[thinking=true]
-Guess they’re familiar with each other.
-
-[character=davian]
-I’ll make sure of it.
-
-[thinking=true]
-He looks me up and down.
-
-[character=davian]
-You’re the dude Boris brought in to replace him, right?
-
-[thinking=true, speed=2.0]
-REPLACE HIM? HE DIDN’T WANT MY HELP????
-Whatever man, i just nod back.
-
-[character=davian]
-He hyped you up a lot, saying you had experience with dealing with problems in previous cons.
-
-[thinking=true]
-Of course he did. Gonna need to give him some words later.
-
-[character=davian]
-Well, he’s a trusted staff member, so i’ll have to believe him. Wait here.
-
-[thinking=true]
-Excusing himself, he gathers a few board members to discuss something.
-
-[character=alice]
-Man, what a mess. And for it to happen right at this year…
-
-[question]
-[0] Any guess as to what happened?
-[1] You suspect anyone?
-
-[if0]
-[character=alice]
-Well, i don’t want to believe, but i can’t think of much besides theft.
-The con folks are so careful with everything, they wouldn’t misplace it.
-
-[if1]
-[thinking=true]
-She looks distant, a little hesitant.
-[character=alice]
-Well, not from the staff, at least. If i had to guess, it was someone that knew someone on the inside.
-
-[end_question]
-
-[thinking=true]
-…
-(add some more stuff about her here)
-From the back, Davian arrives with a few staff members, some of them carrying fursuit parts.
-It’s the con’s mascot, Baggy the Badger. Pretty cute design, a tubby and cuddly badger.
-
-[character=davian]
-Alright, here’s the plan.
-
-[thinking=true]
-He points at me, talking to the staff.
-
-[character=davian]
-He’s Boris’ friend, the newbie. I know, i know, weird choice for this, but he’s the only one that is available and able to fit on the suit.
-
-[thinking=true]
-One of them steps closer, sizing me up.
-She takes out a measuring tape, wrapping it around my chest and limbs.
-
-[name=Staff Member]
-Yeah, he’s the right size. Still a crazy idea, i think.
-
-[character=davian]
-Without Boris to wear the suit, we’d lose an opportunity to gather information. It’ll corroborate with the treasure hunt too.
-
-
-[thinking=true]
-The board keeps squeezing their eyes at me, but eventually they cave in.
-
-[name=Staff Member]
-Good luck, newbie. You got big shoes - and a big badger - to fill.
-
-[thinking=true]
-Huh…
-
-[character=davian]
-Alright newbie, here’s your job: Wear Baggy here and go around the convention, talk to folks, then report to us anything you find. Shouldn’t be too hard, yeah?
-
-[question]
-[0] That’s a little far fetched
-[1] Yeah, i guess i can pull it off.
-[2] Sigh… Boris owes me a big one for this.
-
-[if0]
-[character=davian]
-I know man, but do this for us, yeah?
-
-[if1]
-[character=davian]
-You’ll do just fine, i believe!
-
-[if2]
-[character=davian]
-You, me, and to like half the folks here.
-
-[end_question]
-
-[thinking=true]
-The people around don’t seem very convinced. Alice hasn’t said a word so far, but she also hasn’t said anything against the idea.
-
-[character=davian]
-Good, let’s get you suited up.
-
-[thinking=true]
-They take me to a dress room in the side. I change into some lighter clothes, and piece by piece i get into the Baggy suit.
-Looking at a mirror, it fits quite nicely. The design translates well into a suit, and as they put his mask over my head, it looks just like the photos i’ve been shown of previous editions of the con.
-
-[name=Staff Member]
-Not bad! Let’s put the trench coat on.
-
-[thinking=true]
-They dress a classic detective suit over Baggy, and he looks quite dapper. Maybe i can pull this off, after all.
-
-[character=davian]
-And now, your hat, mr detective.
-
-[thinking=true]
-He puts a fedora hat on top of Baggy’s head.
-And it feels.
-Fitting.
-…….
-
-[fade_out=2.0]
-
 [act2]
-[scenario=black,time=0.0]
-
-[comment=true]
-*A textbox appear, very art deco, with the text now in a different font*
-
-[thinking=true]
-November 14th, 2026. 7:30 AM.
-What should have been a fun and wholesome event for many critters, has devolved into another crime scene.
-A furtive theft, right under everyone’s snouts.
-The target? A valuable piece of art from a renowned artist, which was set to be auctioned tomorrow to benefit the orphans down the street.
-Whoever the lowlife was, i wonder if they knew the weight of their actions while swiping a simple piece of paper.
-No matter. They made a grave mistake.
-
-[character=baggy]
-They made the grave mistake of choosing the day that private detective Baggy Baroncy happened to be in town.
-
-[fade_in=2.0]
-*Slowly the background fades, in a noir style*
-
-[thinking=true]
-As I make my entrance, it seems that the fine people are surprised to see my imposing figure.
-Can’t say i blame them.
-
-[character=baggy]
-Private Detective Baggy, at your service!
-
-[thinking=true]
-I reach my hand to the fine crow gentleman that seemed to be in command of the situation.
-There’s some shock in his face, but still he grips my hand in a firm shake.
-
-[character=noir_davian]
-...nice to meet you, Mr Baggy. I’m Davian Avian.
-
-[character=baggy]
-I’ve been called in to investigate a case of theft, is that right?
-
-[thinking=true]
-The crow looks to his sides, as if trying to find the proper words. Or perhaps, seeking something in his staff members.
-
-[character=noir_davian]
-You, uh, surely got in character quick. I guess that works.
-
-[thinking=true]
-There’s a pause in his speech.
-
-[character=noir_davian]
-Yes, a valuable piece of art was stolen today, before being exposed to the public.
-
-[comment=true]
-* go over all question before continuing *
 
 [question]
-[0] Who had access to it?
-[1] Describe the artpiece.
-[2] When was it last seen?
+[0] That would be right, miss…?
+[1] Avoid the question,
 
 [if0]
-[character=baggy]
-Tell me mr Avian, who had direct access to the stolen item?
+[character=Baggy]
+That would be right. I fear we haven't been presented yet, miss…?
 
-[character=noir_davian]
-Hmmm, i guess everyone from the staff. It didn’t require any special security, really, we never had an incident like this.
+[character=noir_emma]
+You know my name is Emma. You literally spoke to me this morning.
 
 [thinking=true]
-Everyone, huh? Quite a large number of suspects.
-It seems I have my work cut out for me.
+Emma. I wonder why my memory is failing me today.
+Might be the discount whisky from the corner pub.
 
 [if1]
-[character=baggy]
-Could you describe the artpiece? In detail, if possible.
+[character=Baggy]
+Sorry ma'am, I'm simply heading to my room.
 
-[character=noir_davian]
-It’s a traditional canvas painting, 16 by 20 inches, made by Alice Meowlice.
-It features a horned white feline creature sitting below a tree, overlooking the stormy seas.
-Many observers note that the creature’s deep and distant gaze evoke feelings of introspection, embracing moments of peace before returning to life’s tempests.
-
-[thinking=true]
-By that description, it looks like it could be sold for a hefty price.
-
-[if2]
-[character=baggy]
-When was the item last seen by anyone in the team?
-
-[character=noir_davian]
-From what I've been told, it was just after the team arrived today. They checked the podium before moving it to where it sits now, and the canvas was still there.
-
-[character=baggy]
-Moved? Where was it before?
-
-[character=noir_davian]
-Yes, it was in the storage room until last night.
+[character=noir_emma]
+Don't play dumb, I heard you talking to that bitch in the backstage.
+And don't call me ma'am, that's creepy as fuck. I'm Emma.
 
 [thinking=true]
-Interesting. I'll have to check that out.
-
+Emma. Quite a crass feline, if i'm to say.
 [comment=true]
-*End of questionnaire*
+
+[end_question]
+
+[character=noir_emma]
+Anyway, I'm coming with you. Gotta check on her.
+
+[character=Baggy]
+Very well, you may accompany me.
 
 [thinking=true]
-That's enough for me to start investigating.
+The doors open, and a few furs come out from inside the lift. When it empties, it is only me and the panther.
+I press the button for the 24th floor, and the doors close.
+The journey is silent.
+She stares at the door, unflinching.
+I don't attempt to start any conversation, either.
+We arrived on floor 24. Stepping out, she walks behind me, keeping a good distance.
+For a busy event, it is weird to see a hotel floor be this empty.
+We stand in front of room 2418, at the end of the hallway. Emma is right behind, leaning on the wall.
+I raise my hand, and my knuckles gently knock on the door. There's no answer. 
+I knock again, a little harder. Still, no answer.
 
-[character=baggy]
-Very well, Mr Avian, I’ll start taking a look around.
-
-[thinking=true]
-He nods, beckoning me to follow.
-As we leave the site, I notice the curious stares folks throw at me.
-I'm used to not being welcomed, but this feels more like I'm stranded in a different epoch.
-What a queer bunch.
-
-[comment=true]
-*Change to deposit room*
-
-[thinking=true]
-The crow leads me to a dim-lit deposit room.
-Boxes are spread through the floor and piling up to the ceiling, colorful banners drape from the walls in an erratic manner.
-
-[character=noir_davian]
-Here we are.
+[character=Baggy]
+Miss Beary? Are you in there?
 
 [thinking=true]
-He shows me a spot in the ground where the dust gives space for a square shape.
+Only silence.
 
-[character=noir_davian]
-The guys came in the morning to carry the podium, must've been around 6 AM.
-I can't tell exactly who was tasked with carrying it, we just grabbed everyone that wasn't busy.
-
-[thinking=true]
-He seems very cautelous in not giving specifics.
-I am not sure if he's being too honest, or too trusting to point fingers at his own staff.
-Looking around, there’s still plenty of products waiting to be handled.
+[character=noir_emma]
+Try the door handle.
 
 [character=baggy]
-Mind if I take a look around?
+There's no way it is open.
 
-[character=noir_davian]
-Of course, see if you can find anything.
+[thinking=true]
+I grab the handle anyway, to show the foolishness of her suggestion.
+…
+It opens.
+
+[character=noir_emma]
+See? Go right ahead.
+
+[thinking=true]
+I groan, but I have to admit when I'm defeated.
+I step inside the room, with no one in sight.
+The bedsheets are unturned, and the luggage strewn across the floor tells me someone has been here, at least.
+Some personal belongings, however, makes me think she's still in the room. The bathroom, perhaps?
+
+[character=Baggy]
+Miss Beary? Sorry to intrude, I…
+
+[thinking=true]
+Behind me, I hear something being lifted from the floor.
+
+[character=Baggy]
+Miss Emma?
+
+Before I can properly turn around, something bashes against the side of my head.
+It sends me toppling to the ground, and my vision flares with the pain.
+Desperately, I try to grab something to help me up. 
+Before I can, however, my head is bashed again.
+And the world goes dark.
+….
+To be Continued.
 
 [comment=true]
-*change BG if possible, to the boxes*
-
-[thinking=true]
-I take my leave, squeezing around the cramped shelves.
-It is not easy to move around. Furniture has been pushed aside to make way for more boxes.
-A few painted boards with cartoon drawings stand in the way. Turning one aside, it reveals a badger gentleman, wearing a trench coat.
-If not for the situation, I might as well believe it was a mirror!
-Just behind it, I see something peculiar hanging from a shelf.
-
-[comment=true]
-*show patch of fur*
-
-[thinking=true]
-A patch of indigo and pink fur seems to have been ripped from someone.
-Inspecting the shelf, it is broken in the corner, forming a sharp edge.
-It might be nothing, but I'll hang onto it anyway.
-
-[comment=true]
-*change back to previous scenario*
-
-[thinking=true]
-Besides that, I don't see much out of the ordinary.
-I return to the crow, who is speaking with some folks.
-
-[character=Baggy]
-Mr Avian, I'm afraid I haven't gathered much.
-I did find this, however. Does it mean anything to you?
-
-He takes the patch of fur into his hands, facing it to the light.
-
-[character=noir_davian]
-Hmmm, outside of it being from a fursuit, not much.
-
-[thinking= true]
-A wolf from the folks gathered around steps to see it closer.
-
-[name=Wolf]
-Hey, i know that!
-
-[thinking=true]
-He takes it from the crow's hands.
-What I did not expect, however, was for him to sniff it.
-
-[name=Wolf]
-Yeah, totally! Smells like raspberries!
-This is from Beary, one of our friends.
-
-[character=noir_davian]
-Beary? The hell was her suit doing here?
-
-[name=Wolf]
-I dunno man, i know she came to town early but i don't remember her being at the venue.
-Actually, I haven't seen her online since yesterday.
-
-[character=Baggy]
-May I ask where this Beary is staying at?
-
-[character=noir_davian]
-Yeah, she's staying here in the hotel.
-Room 2418, right?
-
-[thinking=true]
-The wolf nods.
-
-[character=Baggy]
-Very well, then. I'll go talk to her while you folks keep doing your thing here.
-
-[thinking=true]
-The crow nods his head, while the wolf seems a bit apprehensive.
-As I return to the backstage, the crew is in a hurry, no doubt exacerbated by the missing art piece.
-A sharply-dressed feline approaches as I enter the hall. Her eyes meet mine, and I sense familiarity in her gaze.
-
-[character=noir_alice]
-Look at that! You look great in the Baggy suit, man!
-
-[thinking=true]
-She addresses me as if we were long time companions, in complete opposition to how every fur has treated me so far.
-It is heartwarming to see a welcoming face, but I wish I could reciprocate the familiarity.
-
-[question]
-[0] Forgive me ma'am, it seems I have forgotten your name.
-[1] It's best if I introduce myself proper.
-
-[if0]
-[character=Baggy]
-Forgive me, ma'am. My work takes me to many places, and often times all the faces blur into one.
-If we have met before, may I ask your name again?
-
-[thinking=true]
-She stops for a second, staring at me, as if waiting for a follow up.
-I find it more appropriate to let her answer in her own time.
-
-[character=noir_alice]
-…I'm Alice…
-
-[character=Baggy]
-A pleasure to meet you again, miss Alice.
-
-[character=noir_alice]
-Anyway…
-Did you find anything in there?
-
-[character=Baggy]
-About the investigation, yes? I heard it was your art piece that was stolen.
-See, I found some patch of fur at the place the painting was stored at.
-I have been told it matches with one called Beary.
-
-[character=noir_alice]
-Beary? I've seen her in the last few cons, she's always hanging out with the crew after the event ends.
-
-[thinking=true]
-I see. She's a regular, then.
-
-[character=Baggy]
-That's good to know. I'm heading to her hotel room now, it seems she hasn't been heard of since yesterday.
-
-[character=noir_alice]
-I hope she's alright. Take care, uh, Mr Baggy…
-
-[thinking=true]
-I say my goodbye, and tip my fedora in respect.
-Her eyes tell me she didn't appreciate my respect.
-
-[comment=true]
-*change scenery to convention*
-
-I head to the elevators, and on the way I see a venue already filled with furs of the most diverse species.
-A few of them stop me and ask for a photograph.
-It's an unusual request for me, but I indulge them for a second.
-At the elevator hall, I call the lift and wait. A number lights up atop the doors, showing floor numbers in the dozens.
-To my side, I hear soft pawsteps from high heels on carpeted floors.
-I turn around to see a black panther. Her eyes stare deep into mine, confidence flowing from them and seeping into her firm gait.
+End of ACT 2.
