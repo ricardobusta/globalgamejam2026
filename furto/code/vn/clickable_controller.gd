@@ -63,23 +63,23 @@ func set_clickable(value: bool) -> void:
 	input_pickable = clickable
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		print("clicou")
-		Utils.gameplay_controller.clicked = self
-		last_clicked_button = event.button_index
-
-		get_viewport().set_input_as_handled()
-
-		match last_clicked_button:
-			MOUSE_BUTTON_LEFT, 0:
-				if Utils.inventory_controller.active:
-					await on_item_used(Utils.inventory_controller.active)
-					times_clicked += 1
-
-		Utils.gameplay_controller.clicked = null
-
-	pass
+#func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	#if event is InputEventMouseButton:
+		#print("clicou")
+		#Utils.gameplay_controller.clicked = self
+		#last_clicked_button = event.button_index
+#
+		#get_viewport().set_input_as_handled()
+#
+		#match last_clicked_button:
+			#MOUSE_BUTTON_LEFT, 0:
+				#if Utils.inventory_controller.active:
+					#await on_item_used(Utils.inventory_controller.active)
+					#times_clicked += 1
+#
+		#Utils.gameplay_controller.clicked = null
+#
+	#pass
 
 
 func _toggle_input() -> void:

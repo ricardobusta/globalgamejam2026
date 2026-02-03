@@ -20,6 +20,10 @@ enum Type {
 }
 
 
+func _init() -> void:
+	Engine.register_singleton(&"C", self)
+
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Utils.gameplay_controller.ready.connect(show_cursor)

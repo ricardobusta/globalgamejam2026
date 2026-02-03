@@ -15,10 +15,6 @@ run/main_scene="uid://b2r3cvia164e7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://cfrpin4xurw06"
 
-[autoload]
-
-G="*uid://br8qq2rug0eoh"
-
 [debug]
 
 settings/gdscript/always_track_call_stacks=true

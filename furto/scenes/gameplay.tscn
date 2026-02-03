@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cgk3l7apjakmh" path="res://code/vn/gameplay_controller.gd" id="1_7biu0"]
 [ext_resource type="Script" uid="uid://bwvu520ovig1k" path="res://code/vn/vn_controller.gd" id="2_ct7aa"]
+[ext_resource type="PackedScene" uid="uid://b3ur10onq0i3r" path="res://assets/ui/cursor/cursor.tscn" id="3_ct7aa"]
 [ext_resource type="PackedScene" uid="uid://c3u8e8mj4b84h" path="res://assets/ui/vn_canvas.tscn" id="3_l1v76"]
-[ext_resource type="PackedScene" uid="uid://b3ur10onq0i3r" path="res://assets/ui/cursor/cursor.tscn" id="4_ct7aa"]
 
 [node name="GameplayRoot" type="Node" unique_id=654853788]
 script = ExtResource("1_7biu0")
@@ -11,9 +11,9 @@ script = ExtResource("1_7biu0")
 [node name="VNController" type="Node" parent="." unique_id=521650082]
 script = ExtResource("2_ct7aa")
 
-[node name="VNCanvas" parent="." unique_id=1433724896 instance=ExtResource("3_l1v76")]
+[node name="CursorCanvas" parent="." unique_id=1359893916 instance=ExtResource("3_ct7aa")]
 
-[node name="CursorCanvas" parent="." unique_id=1359893916 instance=ExtResource("4_ct7aa")]
+[node name="VNCanvas" parent="." unique_id=1433724896 instance=ExtResource("3_l1v76")]
 
 [node name="CharacterCanvas" type="CanvasLayer" parent="." unique_id=715864190]
 layer = 2
